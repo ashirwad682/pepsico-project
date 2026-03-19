@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { useAdminAuth } from '../../context/AdminAuthContext'
 
-const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:5001'
+const API_BASE = import.meta.env.VITE_API_BASE ? import.meta.env.VITE_API_BASE.replace(/\/$/, '') : (import.meta.env.PROD ? '' : 'http://localhost:5001')
 
 export default function UsersTab({ managerMode }) {
   const [users, setUsers] = useState([])

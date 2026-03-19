@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useAdminAuth } from '../../context/AdminAuthContext';
-const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:5001';
+const API_BASE = import.meta.env.VITE_API_BASE ? import.meta.env.VITE_API_BASE.replace(/\/$/, '') : (import.meta.env.PROD ? '' : 'http://localhost:5001');
 
 export default function OffersTab({ managerMode }) {
   const [offers, setOffers] = useState([]);
