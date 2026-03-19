@@ -236,13 +236,19 @@ export default function DeliveryPartnerDashboard() {
       const API_BASE = import.meta.env.VITE_API_BASE ? import.meta.env.VITE_API_BASE.replace(/\/$/, '') : (import.meta.env.PROD ? '' : 'http://localhost:5001')
       // Add cache busting to ensure fresh data
       const timestamp = new Date().getTime()
-      const res = await fetch(`${API_BASE}/api/dashboard-blocking/dashboard-blocking?t=${timestamp}`, {
+      let res = await fetch(`${API_BASE}/api/dashboard-blocking?t=${timestamp}`, {
         cache: 'no-store',
         headers: {
           'Cache-Control': 'no-cache',
           'Pragma': 'no-cache'
         }
       })
+      if (!res.ok) {
+        res = await fetch(`${API_BASE}/api/dashboard-blocking/dashboard-blocking?t=${timestamp}`, {
+          cache: 'no-store',
+          headers: { 'Cache-Control': 'no-cache', 'Pragma': 'no-cache' }
+        })
+      }
       if (!res.ok) return
       const data = await res.json()
       

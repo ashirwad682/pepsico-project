@@ -25,19 +25,23 @@ export const DeliveryPartnerAuthProvider = ({ children }) => {
   const checkDeliveryPartnerAuth = async () => {
     try {
       const dpId = localStorage.getItem('delivery_partner_id')
-      if (dpId) {
-        const { data, error } = await supabase
-          .from('delivery_partners')
-          .select('*')
-          .eq('id', dpId)
-          .single()
-        
-        if (error) throw error
-        setDeliveryPartner(data)
+      const dpDataStr = localStorage.getItem('delivery_partner_data')
+      
+      if (dpId && dpDataStr) {
+        try {
+          setDeliveryPartner(JSON.parse(dpDataStr))
+        } catch(e) {
+          localStorage.removeItem('delivery_partner_id')
+          localStorage.removeItem('delivery_partner_data')
+          setDeliveryPartner(null)
+        }
+      } else {
+        setDeliveryPartner(null)
       }
     } catch (err) {
       console.error('Auth check failed:', err)
       localStorage.removeItem('delivery_partner_id')
+      localStorage.removeItem('delivery_partner_data')
     } finally {
       setLoading(false)
     }
@@ -61,6 +65,7 @@ export const DeliveryPartnerAuthProvider = ({ children }) => {
         throw new Error('Account inactive. Contact admin.')
       }
       localStorage.setItem('delivery_partner_id', data.deliveryPartner.id)
+      localStorage.setItem('delivery_partner_data', JSON.stringify(data.deliveryPartner))
       setDeliveryPartner(data.deliveryPartner)
       return { success: true }
     } catch (err) {
@@ -73,6 +78,7 @@ export const DeliveryPartnerAuthProvider = ({ children }) => {
 
   const logout = () => {
     localStorage.removeItem('delivery_partner_id')
+    localStorage.removeItem('delivery_partner_data')
     setDeliveryPartner(null)
   }
 
