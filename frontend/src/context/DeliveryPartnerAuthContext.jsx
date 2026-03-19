@@ -1,7 +1,9 @@
 import React, { createContext, useContext, useState, useEffect } from 'react'
 import { supabase } from '../lib/supabaseClient'
 
-const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:5001'
+const API_BASE = import.meta.env.VITE_API_BASE 
+  ? import.meta.env.VITE_API_BASE.replace(/\/$/, '') 
+  : (import.meta.env.PROD ? 'https://pepsico-backend.vercel.app' : 'http://localhost:5001');
 
 const DeliveryPartnerAuthContext = createContext()
 
@@ -52,6 +54,12 @@ export const DeliveryPartnerAuthProvider = ({ children }) => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password })
       })
+
+      const contentType = res.headers.get("content-type");
+      if (!contentType || !contentType.includes("application/json")) {
+        throw new Error("Backend connection failed. Cannot connect to backend.");
+      }
+
       const data = await res.json()
       if (!res.ok || !data.success) {
         throw new Error(data.error || 'Login failed')
@@ -64,8 +72,10 @@ export const DeliveryPartnerAuthProvider = ({ children }) => {
       setDeliveryPartner(data.deliveryPartner)
       return { success: true }
     } catch (err) {
-      setError(err.message)
-      return { success: false, error: err.message }
+      console.error(err);
+      const errorMsg = err.message === 'Failed to fetch' ? 'Network error: Cannot connect to backend.' : err.message;
+      setError(errorMsg)
+      return { success: false, error: errorMsg }
     } finally {
       setLoading(false)
     }
