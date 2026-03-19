@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { useAdminAuth } from '../../context/AdminAuthContext'
 import { useMediaQuery } from '../../lib/useMediaQuery'
 
-const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:5001'
+const API_BASE = import.meta.env.VITE_API_BASE ? import.meta.env.VITE_API_BASE.replace(/\/$/, '') : (import.meta.env.PROD ? '' : 'http://localhost:5001')
 
 const statusStyles = {
   Pending: { bg: '#fff7e6', color: '#ad6800' },
