@@ -71,6 +71,7 @@ const parseOrderItems = (rawItems) => {
 
     return {
       key: String(item?.id || item?.product_id || item?.sku || index),
+      product_id: item?.product_id || item?.id || null,
       name: item?.product_name || item?.name || item?.title || `Item ${index + 1}`,
       quantity,
       unitPrice,
@@ -528,29 +529,51 @@ function FilterChip({ label, active, onClick }) {
 }
 
 function PackChecklistModal({ order, submitting, onClose, onSubmit }) {
-  const checklistItems = useMemo(() => {
-    const parsed = parseOrderItems(order?.items)
-    if (parsed.length > 0) return parsed
-    return [{
-      key: 'manual-verification',
-      name: 'All products in this order are physically verified',
-      quantity: 1,
-      unitPrice: 0,
-      lineTotal: 0
-    }]
-  }, [order?.id, order?.items])
-
+  const [checklistItems, setChecklistItems] = useState([])
   const [checkedMap, setCheckedMap] = useState({})
   const [notes, setNotes] = useState('')
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    const defaults = {}
-    checklistItems.forEach((item) => {
-      defaults[item.key] = false
-    })
-    setCheckedMap(defaults)
+    async function prepareItems() {
+      setLoading(true)
+      try {
+        let parsed = parseOrderItems(order?.items)
+        if (parsed.length === 0) {
+          parsed = [{
+            key: 'manual-verification',
+            name: 'All products in this order are physically verified',
+            quantity: 1,
+            unitPrice: 0,
+            lineTotal: 0
+          }]
+        } else {
+          // Fetch product names since order.items often only contains IDs
+          const res = await fetch(`${API_BASE}/api/products`)
+          if (res.ok) {
+            const allProducts = await res.json()
+            const productMap = new Map(allProducts.map(p => [p.id, p]))
+            parsed = parsed.map(item => {
+              const productId = item.product_id || item.key
+              if (productId && productMap.has(productId)) {
+                return { ...item, name: productMap.get(productId).name }
+              }
+              return item
+            })
+          }
+        }
+        setChecklistItems(parsed)
+        const defaults = {}
+        parsed.forEach((item) => { defaults[item.key] = false })
+        setCheckedMap(defaults)
+      } catch (err) {
+        console.error('Failed to resolve product names:', err)
+      } finally {
+        setLoading(false)
+      }
+    }
+    prepareItems()
     setNotes('')
-  }, [order?.id, checklistItems])
 
   const allChecked = checklistItems.length > 0 && checklistItems.every((item) => Boolean(checkedMap[item.key]))
 
@@ -606,91 +629,99 @@ function PackChecklistModal({ order, submitting, onClose, onSubmit }) {
           </button>
         </div>
 
-        <div style={{ marginBottom: 14, fontSize: 13, color: '#475569', lineHeight: 1.6 }}>
-          Check each product after physical verification, then submit to mark this order as Packed.
-        </div>
+        {loading ? (
+          <div style={{ padding: '20px', textAlign: 'center', color: '#64748b' }}>
+            Loading product details...
+          </div>
+        ) : (
+          <>
+            <div style={{ marginBottom: 14, fontSize: 13, color: '#475569', lineHeight: 1.6 }}>
+              Check each product after physical verification, then submit to mark this order as Packed.
+            </div>
 
-        <form onSubmit={handleSubmit}>
-          <div style={{ display: 'grid', gap: 10, marginBottom: 16 }}>
-            {checklistItems.map((item) => (
-              <label
-                key={item.key}
-                style={{
-                  display: 'flex',
-                  gap: 12,
-                  alignItems: 'flex-start',
-                  border: '1px solid #e2e8f0',
-                  borderRadius: 10,
-                  padding: '12px 14px',
-                  background: checkedMap[item.key] ? '#f0fdf4' : '#fff',
-                  cursor: submitting ? 'default' : 'pointer'
-                }}
-              >
-                <input
-                  type="checkbox"
-                  checked={Boolean(checkedMap[item.key])}
+            <form onSubmit={handleSubmit}>
+              <div style={{ display: 'grid', gap: 10, marginBottom: 16 }}>
+                {checklistItems.map((item) => (
+                  <label
+                    key={item.key}
+                    style={{
+                      display: 'flex',
+                      gap: 12,
+                      alignItems: 'flex-start',
+                      border: '1px solid #e2e8f0',
+                      borderRadius: 10,
+                      padding: '12px 14px',
+                      background: checkedMap[item.key] ? '#f0fdf4' : '#fff',
+                      cursor: submitting ? 'default' : 'pointer'
+                    }}
+                  >
+                    <input
+                      type="checkbox"
+                      checked={Boolean(checkedMap[item.key])}
+                      disabled={submitting}
+                      onChange={() => setCheckedMap((prev) => ({ ...prev, [item.key]: !prev[item.key] }))}
+                      style={{ marginTop: 3 }}
+                    />
+                    <div style={{ display: 'grid', gap: 4, flex: 1 }}>
+                      <div style={{ fontSize: 14, fontWeight: 700, color: '#0f172a' }}>{item.name}</div>
+                      <div style={{ fontSize: 12, color: '#64748b' }}>
+                        Qty: {item.quantity}
+                        {item.unitPrice > 0 && ` • Unit: ₹${formatCurrency(item.unitPrice)}`}
+                        {item.lineTotal > 0 && ` • Total: ₹${formatCurrency(item.lineTotal)}`}
+                      </div>
+                    </div>
+                  </label>
+                ))}
+              </div>
+
+              <div className="form-group" style={{ marginBottom: 18 }}>
+                <label className="form-label">Packing Notes (optional)</label>
+                <textarea
+                  value={notes}
+                  onChange={(event) => setNotes(event.target.value)}
+                  placeholder="Add notes like damaged box replaced, quantity rechecked, etc."
+                  rows={3}
                   disabled={submitting}
-                  onChange={() => setCheckedMap((prev) => ({ ...prev, [item.key]: !prev[item.key] }))}
-                  style={{ marginTop: 3 }}
+                  style={{ width: '100%', resize: 'vertical' }}
                 />
-                <div style={{ display: 'grid', gap: 4, flex: 1 }}>
-                  <div style={{ fontSize: 14, fontWeight: 700, color: '#0f172a' }}>{item.name}</div>
-                  <div style={{ fontSize: 12, color: '#64748b' }}>
-                    Qty: {item.quantity}
-                    {item.unitPrice > 0 && ` • Unit: ₹${formatCurrency(item.unitPrice)}`}
-                    {item.lineTotal > 0 && ` • Total: ₹${formatCurrency(item.lineTotal)}`}
-                  </div>
-                </div>
-              </label>
-            ))}
-          </div>
+              </div>
 
-          <div className="form-group" style={{ marginBottom: 18 }}>
-            <label className="form-label">Packing Notes (optional)</label>
-            <textarea
-              value={notes}
-              onChange={(event) => setNotes(event.target.value)}
-              placeholder="Add notes like damaged box replaced, quantity rechecked, etc."
-              rows={3}
-              disabled={submitting}
-              style={{ width: '100%', resize: 'vertical' }}
-            />
-          </div>
-
-          <div style={{ display: 'flex', gap: 10, justifyContent: 'flex-end' }}>
-            <button
-              type="button"
-              onClick={onClose}
-              disabled={submitting}
-              style={{
-                padding: '10px 14px',
-                borderRadius: 8,
-                border: '1px solid #cbd5e1',
-                background: '#fff',
-                color: '#0f172a',
-                fontWeight: 600,
-                cursor: submitting ? 'not-allowed' : 'pointer'
-              }}
-            >
-              Cancel
-            </button>
-            <button
-              type="submit"
-              disabled={!allChecked || submitting}
-              style={{
-                padding: '10px 16px',
-                borderRadius: 8,
-                border: 'none',
-                background: !allChecked || submitting ? '#cbd5e1' : 'linear-gradient(135deg, #f59e0b, #d97706)',
-                color: '#fff',
-                fontWeight: 700,
-                cursor: !allChecked || submitting ? 'not-allowed' : 'pointer'
-              }}
-            >
-              {submitting ? 'Submitting...' : 'Submit & Mark as Packed'}
-            </button>
-          </div>
-        </form>
+              <div style={{ display: 'flex', gap: 10, justifyContent: 'flex-end' }}>
+                <button
+                  type="button"
+                  onClick={onClose}
+                  disabled={submitting}
+                  style={{
+                    padding: '10px 14px',
+                    borderRadius: 8,
+                    border: '1px solid #cbd5e1',
+                    background: '#fff',
+                    color: '#0f172a',
+                    fontWeight: 600,
+                    cursor: submitting ? 'not-allowed' : 'pointer'
+                  }}
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  disabled={!allChecked || submitting}
+                  style={{
+                    padding: '10px 16px',
+                    borderRadius: 8,
+                    border: 'none',
+                    background: !allChecked || submitting ? '#cbd5e1' : 'linear-gradient(135deg, #f59e0b, #d97706)',
+                    color: '#fff',
+                    fontWeight: 700,
+                    cursor: !allChecked || submitting ? 'not-allowed' : 'pointer'
+                  }}
+                >
+                  {submitting ? 'Submitting...' : 'Submit & Mark as Packed'}
+                </button>
+              </div>
+            </form>
+          </>
+        )}
       </motion.div>
     </motion.div>
   )
