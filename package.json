@@ -2,7 +2,7 @@
   "name": "ashirwad-enterprises-backend",
   "version": "1.0.0",
   "description": "Backend for Vercel deployment.",
-  "main": "api/index.js",
+  "main": "index.js",
   "type": "module",
   "engines": {
     "node": "20.x"
@@ -12,9 +12,18 @@
     "build": "npm run install-frontend && cd frontend && npm run build"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.39.7",
     "axios": "^1.13.5",
+    "bcrypt": "^6.0.0",
+    "bcryptjs": "^3.0.3",
     "cors": "^2.8.5",
+    "dotenv": "^16.4.1",
     "express": "^4.19.2",
-    "multer": "^2.0.2"
+    "handlebars": "^4.7.7",
+    "multer": "^2.0.2",
+    "node-cron": "^3.0.3",
+    "nodemailer": "^7.0.12",
+    "pdfkit": "^0.13.0",
+    "razorpay": "^2.9.6"
   }
 }

@@ -27,7 +27,10 @@ import bcrypt from 'bcryptjs';
 const app = express();
 app.use(sendOtpRouter);
 import multer from 'multer';
-const upload = multer({ dest: 'uploads/' });
+
+const isVercel = process.env.VERCEL === '1' || process.env.NODE_ENV === 'production';
+const baseDir = isVercel ? '/tmp' : process.cwd();
+const productUpload = multer({ dest: path.join(baseDir, 'uploads/') });
 
 const PROFILE_PHOTOS_BUCKET = 'user-profile-photos';
 const VERIFICATION_DOCS_BUCKET = 'user-verification-documents';
@@ -607,24 +610,24 @@ function resolveUploadsAbsolutePath(filePathLike) {
   }
 
   if (normalized.startsWith('uploads/')) {
-    return path.join(process.cwd(), normalized)
+    return path.join(baseDir, normalized)
   }
 
   if (normalized.startsWith('manager-')) {
-    return path.join(process.cwd(), 'uploads', normalized)
+    return path.join(baseDir, 'uploads', normalized)
   }
 
-  return path.join(process.cwd(), 'uploads', normalized)
+  return path.join(baseDir, 'uploads', normalized)
 }
 
 function toUploadsPublicUrl(absolutePath) {
-  const uploadsRoot = path.join(process.cwd(), 'uploads')
+  const uploadsRoot = path.join(baseDir, 'uploads')
   const rel = path.relative(uploadsRoot, absolutePath).split(path.sep).join('/')
   return `/uploads/${rel}`
 }
 
 function writeBufferToUploads(relativeDir, filename, fileBuffer) {
-  const uploadsRoot = path.join(process.cwd(), 'uploads')
+  const uploadsRoot = path.join(baseDir, 'uploads')
   const targetDir = path.join(uploadsRoot, relativeDir)
   fs.mkdirSync(targetDir, { recursive: true })
 
@@ -3604,7 +3607,7 @@ app.get('/api/admin/products', requireAdminKey, async (req, res) => {
   }
 })
 
-app.post('/api/admin/products', requireAdminKey, upload.single('image'), async (req, res) => {
+app.post('/api/admin/products', requireAdminKey, productUpload.single('image'), async (req, res) => {
   try {
     const { name, category, price, stock, description } = req.body;
     let image_url = req.body.image_url || null;
@@ -3632,7 +3635,7 @@ app.post('/api/admin/products', requireAdminKey, upload.single('image'), async (
   }
 });
 
-app.put('/api/admin/products/:id', requireAdminKey, upload.single('image'), async (req, res) => {
+app.put('/api/admin/products/:id', requireAdminKey, productUpload.single('image'), async (req, res) => {
   try {
     const { name, category, price, stock, description } = req.body;
     let image_url = req.body.image_url || null;
@@ -7406,7 +7409,7 @@ app.get('/api/orders/:id/bill', async (req, res) => {
 if (process.env.NODE_ENV !== 'test') {
   // Schedule daily report generation at 06:00 local time
   try {
-    const reportsDir = path.join(process.cwd(), 'reports')
+    const reportsDir = path.join(baseDir, 'reports')
     const reportTimezone = process.env.REPORT_CRON_TIMEZONE || 'Asia/Kolkata'
     const dailyReportRecipient = process.env.DAILY_REPORT_EMAIL || 'ashirwadenetrprisesbihar@gmail.com'
     if (!fs.existsSync(reportsDir)) {

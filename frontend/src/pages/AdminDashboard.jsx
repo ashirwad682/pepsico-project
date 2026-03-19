@@ -8,7 +8,7 @@ import DeliveryAttendanceTab from './admin-sections/DeliveryAttendanceTab'
 // ...existing code...
 import { fetchAdminOffers, createAdminOffer, updateAdminOffer, deleteAdminOffer } from '../api/client'
 
-const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:5001'
+const API_BASE = import.meta.env.VITE_API_BASE ? import.meta.env.VITE_API_BASE.replace(/\/$/, '') : (import.meta.env.PROD ? '' : 'http://localhost:5001')
 const STATUS_FLOW = ['Pending', 'Approved', 'Dispatched', 'Delivered']
 
 const statusStyles = {
@@ -8407,7 +8407,7 @@ function CollectionSettlementTab() {
 
 // ============ WAREHOUSE SETTLEMENT TAB ============
 function WarehouseSettlementTab() {
-  const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:5001'
+  const API_BASE = import.meta.env.VITE_API_BASE ? import.meta.env.VITE_API_BASE.replace(/\/$/, '') : (import.meta.env.PROD ? '' : 'http://localhost:5001')
   const { adminKey } = useAdminAuth()
   const headers = { 'x-admin-api-key': adminKey }
 
@@ -8819,7 +8819,7 @@ function WarehouseSettlementTab() {
 
 // ============ WAREHOUSE TAB ============
 function WarehouseTab({ adminKey }) {
-  const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:5001'
+  const API_BASE = import.meta.env.VITE_API_BASE ? import.meta.env.VITE_API_BASE.replace(/\/$/, '') : (import.meta.env.PROD ? '' : 'http://localhost:5001')
   const authHeaders = { 'x-admin-api-key': adminKey, 'x-admin-key': adminKey }
 
   const [warehouses, setWarehouses] = useState([])

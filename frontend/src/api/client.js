@@ -14,8 +14,8 @@ export async function fetchUsers() {
   if (!res.ok) throw new Error('Failed to fetch users');
   return res.json();
 }
-const rawBase = (import.meta.env.VITE_API_BASE || '').trim()
-const API_BASE = rawBase ? rawBase.replace(/\/$/, '') : 'http://localhost:5001'
+const rawBase = (import.meta.env.VITE_API_BASE || '').trim();
+const API_BASE = rawBase ? rawBase.replace(/\/$/, '') : (import.meta.env.PROD ? '' : 'http://localhost:5001');
 
 function apiUrl(path) {
   if (!path.startsWith('/')) {
