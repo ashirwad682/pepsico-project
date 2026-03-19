@@ -2604,12 +2604,19 @@ app.post('/api/manager/verification-documents/:documentType', requireManagerAuth
     }
 
     const extension = MIME_EXTENSION_MAP[req.file.mimetype] || 'bin'
-    const fileName = `${Date.now()}-${randomUUID()}.${extension}`
-    const saved = writeBufferToUploads(
-      `manager-documents/${manager.id}/${normalizedDocumentType}`,
-      fileName,
-      req.file.buffer
-    )
+    const storagePath = `manager-${manager.id}/${normalizedDocumentType}/${Date.now()}-${randomUUID()}.${extension}`
+
+    const { error: storageError } = await supabase
+      .storage
+      .from(VERIFICATION_DOCS_BUCKET)
+      .upload(storagePath, req.file.buffer, {
+        contentType: req.file.mimetype,
+        upsert: false
+      })
+
+    if (storageError) {
+      throw new Error(storageError.message)
+    }
 
     const payload = {
       manager_id: manager.id,
@@ -2618,8 +2625,8 @@ app.post('/api/manager/verification-documents/:documentType', requireManagerAuth
       mime_type: req.file.mimetype,
       file_size: req.file.size,
       file_size_bytes: req.file.size,
-      file_path: saved.filePath,
-      file_url: saved.publicUrl,
+      file_path: storagePath,
+      file_url: null,
       status: 'Pending',
       rejection_reason: null,
       uploaded_at: new Date().toISOString(),
@@ -2631,13 +2638,17 @@ app.post('/api/manager/verification-documents/:documentType', requireManagerAuth
       .upsert([payload], { onConflict: 'manager_id,document_type' })
 
     if (saveError) {
-      removeUploadFileQuiet(saved.filePath)
+      await supabase.storage.from(VERIFICATION_DOCS_BUCKET).remove([storagePath]).catch(() => {})
       throw new Error(saveError.message)
     }
 
     const previousFile = existingRow?.file_path || existingRow?.file_url || null
-    if (previousFile && previousFile !== saved.filePath && previousFile !== saved.publicUrl) {
-      removeUploadFileQuiet(previousFile)
+    if (previousFile && previousFile !== storagePath) {
+      if (!previousFile.startsWith('uploads/')) {
+        await supabase.storage.from(VERIFICATION_DOCS_BUCKET).remove([previousFile]).catch(() => {})
+      } else {
+        removeUploadFileQuiet(previousFile)
+      }
     }
 
     const verificationStatus = await syncManagerProfileVerificationStatus(manager.id)
