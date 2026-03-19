@@ -25,6 +25,14 @@ import express from 'express';
 import cron from 'node-cron';
 import bcrypt from 'bcryptjs';
 const app = express();
+
+// =============================
+// GLOBAL BULLETPROOF CORS
+// =============================
+const corsOptions = { origin: '*', methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'], allowedHeaders: ['Content-Type', 'Authorization', 'x-admin-key', 'x-admin-api-key', 'x-manager-token', 'x-warehouse-id', 'x-warehouse-auth', 'x-delivery-partner-id', 'x-admin-report-password'] };
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
+
 app.use(sendOtpRouter);
 import multer from 'multer';
 
@@ -306,7 +314,6 @@ export const supabase = createClient(
 // =============================
 // Middleware
 // =============================
-app.use(cors())
 app.use(express.json({ limit: '50mb' })) // Increased limit for base64 images
 app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 app.use('/uploads', express.static('uploads'));
@@ -379,7 +386,6 @@ import {
 } from './lib/emailer.js'
 
 
-app.use(cors())
 app.use(express.json({ limit: '50mb' })) // Increased limit for base64 images
 app.use(express.urlencoded({ limit: '50mb', extended: true }))
 
