@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo, useContext } from 'react'
 import { motion } from 'framer-motion'
 import { AdminAuthContext } from '../../context/AdminAuthContext'
 
-const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:5001'
+const API_BASE = import.meta.env.VITE_API_BASE ? import.meta.env.VITE_API_BASE.replace(/\/$/, '') : (import.meta.env.PROD ? '' : 'http://localhost:5001')
 
 // Safe hook — returns { adminKey: null } when used outside AdminAuthProvider (e.g., ManagerDashboard)
 function useSafeAdminAuth() {
