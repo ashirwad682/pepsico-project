@@ -28,18 +28,27 @@ export const DeliveryPartnerAuthProvider = ({ children }) => {
     try {
       const dpId = localStorage.getItem('delivery_partner_id')
       if (dpId) {
+        setDeliveryPartner({
+          id: dpId,
+          name: localStorage.getItem('delivery_partner_name') || 'Partner',
+          assigned_area: localStorage.getItem('delivery_partner_assigned_area') || '',
+          delivery_partner_id: localStorage.getItem('delivery_partner_display_id') || ''
+        })
+
         const { data, error } = await supabase
           .from('delivery_partners')
           .select('*')
           .eq('id', dpId)
           .single()
         
-        if (error) throw error
+        if (error) {
+          console.warn('Could not fetch full delivery partner details:', error.message)
+          return
+        }
         setDeliveryPartner(data)
       }
     } catch (err) {
       console.error('Auth check failed:', err)
-      localStorage.removeItem('delivery_partner_id')
     } finally {
       setLoading(false)
     }
@@ -69,6 +78,9 @@ export const DeliveryPartnerAuthProvider = ({ children }) => {
         throw new Error('Account inactive. Contact admin.')
       }
       localStorage.setItem('delivery_partner_id', data.deliveryPartner.id)
+      localStorage.setItem('delivery_partner_name', data.deliveryPartner.name || '')
+      localStorage.setItem('delivery_partner_assigned_area', data.deliveryPartner.assigned_area || '')
+      localStorage.setItem('delivery_partner_display_id', data.deliveryPartner.delivery_partner_id || '')
       setDeliveryPartner(data.deliveryPartner)
       return { success: true }
     } catch (err) {
@@ -83,6 +95,9 @@ export const DeliveryPartnerAuthProvider = ({ children }) => {
 
   const logout = () => {
     localStorage.removeItem('delivery_partner_id')
+    localStorage.removeItem('delivery_partner_name')
+    localStorage.removeItem('delivery_partner_assigned_area')
+    localStorage.removeItem('delivery_partner_display_id')
     setDeliveryPartner(null)
   }
 
