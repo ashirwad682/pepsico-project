@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const API_BASE = import.meta.env.VITE_API_BASE ? import.meta.env.VITE_API_BASE.replace(/\/$/, '') : (import.meta.env.PROD ? '' : 'http://localhost:5001');
+const API_BASE = import.meta.env.VITE_API_BASE 
+  ? import.meta.env.VITE_API_BASE.replace(/\/$/, '') 
+  : (import.meta.env.PROD ? 'https://pepsico-backend.vercel.app' : 'http://localhost:5001');
 
 export default function ManagerLogin() {
   const [email, setEmail] = useState('');
@@ -27,6 +29,12 @@ export default function ManagerLogin() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: trimmedEmail, password: trimmedPassword })
       });
+
+      const contentType = res.headers.get("content-type");
+      if (!contentType || !contentType.includes("application/json")) {
+        throw new Error("Backend connection failed. Vercel returned HTML instead of JSON.");
+      }
+
       const result = await res.json();
       setLoading(false);
       if (!res.ok) {
@@ -41,7 +49,8 @@ export default function ManagerLogin() {
       localStorage.setItem('manager_profile_verification_status', result.manager?.profile_verification_status || 'Pending Verification');
       navigate('/manager-dashboard');
     } catch (err) {
-      setError('Login failed. Please try again.');
+      console.error(err);
+      setError(err.message === 'Failed to fetch' ? 'Network error: Cannot connect to backend.' : err.message || 'Login failed. Please try again.');
       setLoading(false);
     }
   }
