@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react'
 import { supabase } from '../lib/supabaseClient'
 
-const API_BASE = import.meta.env.VITE_API_BASE ? import.meta.env.VITE_API_BASE.replace(/\/$/, '') : (import.meta.env.PROD ? '' : 'http://localhost:5001')
+const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:5001'
 
 const DeliveryPartnerAuthContext = createContext()
 
@@ -25,23 +25,19 @@ export const DeliveryPartnerAuthProvider = ({ children }) => {
   const checkDeliveryPartnerAuth = async () => {
     try {
       const dpId = localStorage.getItem('delivery_partner_id')
-      const dpDataStr = localStorage.getItem('delivery_partner_data')
-      
-      if (dpId && dpDataStr) {
-        try {
-          setDeliveryPartner(JSON.parse(dpDataStr))
-        } catch(e) {
-          localStorage.removeItem('delivery_partner_id')
-          localStorage.removeItem('delivery_partner_data')
-          setDeliveryPartner(null)
-        }
-      } else {
-        setDeliveryPartner(null)
+      if (dpId) {
+        const { data, error } = await supabase
+          .from('delivery_partners')
+          .select('*')
+          .eq('id', dpId)
+          .single()
+        
+        if (error) throw error
+        setDeliveryPartner(data)
       }
     } catch (err) {
       console.error('Auth check failed:', err)
       localStorage.removeItem('delivery_partner_id')
-      localStorage.removeItem('delivery_partner_data')
     } finally {
       setLoading(false)
     }
@@ -65,7 +61,6 @@ export const DeliveryPartnerAuthProvider = ({ children }) => {
         throw new Error('Account inactive. Contact admin.')
       }
       localStorage.setItem('delivery_partner_id', data.deliveryPartner.id)
-      localStorage.setItem('delivery_partner_data', JSON.stringify(data.deliveryPartner))
       setDeliveryPartner(data.deliveryPartner)
       return { success: true }
     } catch (err) {
@@ -78,7 +73,6 @@ export const DeliveryPartnerAuthProvider = ({ children }) => {
 
   const logout = () => {
     localStorage.removeItem('delivery_partner_id')
-    localStorage.removeItem('delivery_partner_data')
     setDeliveryPartner(null)
   }
 
