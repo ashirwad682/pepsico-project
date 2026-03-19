@@ -1,6 +1,8 @@
 import React, { createContext, useContext, useEffect, useState } from 'react'
 
-const API_BASE = import.meta.env.VITE_API_BASE ? import.meta.env.VITE_API_BASE.replace(/\/$/, '') : (import.meta.env.PROD ? '' : 'http://localhost:5001')
+const API_BASE = import.meta.env.VITE_API_BASE 
+  ? import.meta.env.VITE_API_BASE.replace(/\/$/, '') 
+  : (import.meta.env.PROD ? 'https://pepsico-backend.vercel.app' : 'http://localhost:5001')
 const WarehouseAuthContext = createContext()
 
 export const useWarehouseAuth = () => {

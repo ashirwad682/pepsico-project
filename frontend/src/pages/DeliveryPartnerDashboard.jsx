@@ -10,7 +10,9 @@ import DashboardBlockLockModal from '../components/DashboardBlockLockModal'
 import DeliveryAttendanceCard from '../components/DeliveryAttendanceCard'
 import { useMediaQuery } from '../lib/useMediaQuery'
 
-const API_BASE = import.meta.env.VITE_API_BASE ? import.meta.env.VITE_API_BASE.replace(/\/$/, '') : (import.meta.env.PROD ? '' : 'http://localhost:5001')
+const API_BASE = import.meta.env.VITE_API_BASE 
+  ? import.meta.env.VITE_API_BASE.replace(/\/$/, '') 
+  : (import.meta.env.PROD ? 'https://pepsico-backend.vercel.app' : 'http://localhost:5001')
 
 const isCodOrder = (order) => {
   return ((order?.payment_method || order?.order_type || '')).toString().toUpperCase() === 'COD'
@@ -233,7 +235,9 @@ export default function DeliveryPartnerDashboard() {
 
   const checkDashboardBlocking = async () => {
     try {
-      const API_BASE_LOCAL = import.meta.env.VITE_API_BASE ? import.meta.env.VITE_API_BASE.replace(/\/$/, '') : (import.meta.env.PROD ? '' : 'http://localhost:5001')
+      const API_BASE_LOCAL = import.meta.env.VITE_API_BASE 
+        ? import.meta.env.VITE_API_BASE.replace(/\/$/, '') 
+        : (import.meta.env.PROD ? 'https://pepsico-backend.vercel.app' : 'http://localhost:5001')
       // Add cache busting to ensure fresh data
       const timestamp = new Date().getTime()
       const res = await fetch(`${API_BASE_LOCAL}/api/dashboard-blocking/dashboard-blocking?t=${timestamp}`, {

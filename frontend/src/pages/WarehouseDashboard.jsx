@@ -5,7 +5,9 @@ import OTPVerificationModal from '../components/OTPVerificationModal'
 import DeliveryJourneyModal from '../components/DeliveryJourneyModal'
 import { useWarehouseAuth } from '../context/WarehouseAuthContext'
 
-const API_BASE = import.meta.env.VITE_API_BASE ? import.meta.env.VITE_API_BASE.replace(/\/$/, '') : (import.meta.env.PROD ? '' : 'http://localhost:5001')
+const API_BASE = import.meta.env.VITE_API_BASE 
+  ? import.meta.env.VITE_API_BASE.replace(/\/$/, '') 
+  : (import.meta.env.PROD ? 'https://pepsico-backend.vercel.app' : 'http://localhost:5001')
 const STATUS_SEQUENCE = ['pending', 'assigned', 'packed', 'delivered']
 
 const normalizeStatus = (status) => {
