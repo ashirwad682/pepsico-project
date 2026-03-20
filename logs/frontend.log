@@ -7,3 +7,1448 @@
 
   ➜  Local:   http://localhost:5173/
   ➜  Network: use --host to expose
+10:34:18 AM [vite] hmr update /src/pages/Register.jsx
+10:34:18 AM [vite] Internal server error: /Users/ashirwadk/Project/pepsico/frontend/src/pages/Register.jsx: Identifier 'API_BASE' has already been declared. (9:6)
+
+   7 | const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:5001'
+   8 | const rawApiBase = import.meta.env.VITE_API_BASE || 'http://localhost:5001';
+>  9 | const API_BASE = rawApiBase.replace(/\/$/, ''); // Remove trailing slash if present
+     |       ^
+  10 |
+  11 | export default function Register() {
+  12 |   const [step, setStep] = useState('form') // 'form', 'otp', 'success'
+  Plugin: vite:react-babel
+  File: /Users/ashirwadk/Project/pepsico/frontend/src/pages/Register.jsx:9:6
+  7  |  const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:5001'
+  8  |  const rawApiBase = import.meta.env.VITE_API_BASE || 'http://localhost:5001';
+  9  |  const API_BASE = rawApiBase.replace(/\/$/, ''); // Remove trailing slash if present
+     |        ^
+  10 |  
+  11 |  export default function Register() {
+      at constructor (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:367:19)
+      at JSXParserMixin.raise (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:6624:19)
+      at ScopeHandler.checkRedeclarationInScope (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:1646:19)
+      at ScopeHandler.declareName (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:1612:12)
+      at JSXParserMixin.declareNameFromIdentifier (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:7594:16)
+      at JSXParserMixin.checkIdentifier (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:7590:12)
+      at JSXParserMixin.checkLVal (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:7527:12)
+      at JSXParserMixin.parseVarId (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13488:10)
+      at JSXParserMixin.parseVar (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13459:12)
+      at JSXParserMixin.parseVarStatement (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13306:10)
+      at JSXParserMixin.parseStatementContent (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12927:23)
+      at JSXParserMixin.parseStatementLike (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12843:17)
+      at JSXParserMixin.parseModuleItem (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12820:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13392:36)
+      at JSXParserMixin.parseBlockBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13385:10)
+      at JSXParserMixin.parseProgram (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12698:10)
+      at JSXParserMixin.parseTopLevel (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12688:25)
+      at JSXParserMixin.parse (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:14568:25)
+      at parse (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:14602:38)
+      at parser (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/core/lib/parser/index.js:41:34)
+      at parser.next (<anonymous>)
+      at normalizeFile (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/core/lib/transformation/normalize-file.js:64:37)
+      at normalizeFile.next (<anonymous>)
+      at run (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/core/lib/transformation/index.js:22:50)
+      at run.next (<anonymous>)
+      at transform (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/core/lib/transform.js:22:33)
+      at transform.next (<anonymous>)
+      at step (/Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:261:32)
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:273:13
+      at async.call.result.err.err (/Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:223:11)
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:189:28
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/core/lib/gensync-utils/async.js:67:7
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:113:33
+      at step (/Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:287:14)
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:273:13
+      at async.call.result.err.err (/Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:223:11)
+10:34:18 AM [vite] Internal server error: /Users/ashirwadk/Project/pepsico/frontend/src/pages/Register.jsx: Identifier 'API_BASE' has already been declared. (9:6)
+
+   7 | const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:5001'
+   8 | const rawApiBase = import.meta.env.VITE_API_BASE || 'http://localhost:5001';
+>  9 | const API_BASE = rawApiBase.replace(/\/$/, ''); // Remove trailing slash if present
+     |       ^
+  10 |
+  11 | export default function Register() {
+  12 |   const [step, setStep] = useState('form') // 'form', 'otp', 'success'
+  Plugin: vite:react-babel
+  File: /Users/ashirwadk/Project/pepsico/frontend/src/pages/Register.jsx:9:6
+  7  |  const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:5001'
+  8  |  const rawApiBase = import.meta.env.VITE_API_BASE || 'http://localhost:5001';
+  9  |  const API_BASE = rawApiBase.replace(/\/$/, ''); // Remove trailing slash if present
+     |        ^
+  10 |  
+  11 |  export default function Register() {
+      at constructor (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:367:19)
+      at JSXParserMixin.raise (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:6624:19)
+      at ScopeHandler.checkRedeclarationInScope (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:1646:19)
+      at ScopeHandler.declareName (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:1612:12)
+      at JSXParserMixin.declareNameFromIdentifier (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:7594:16)
+      at JSXParserMixin.checkIdentifier (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:7590:12)
+      at JSXParserMixin.checkLVal (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:7527:12)
+      at JSXParserMixin.parseVarId (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13488:10)
+      at JSXParserMixin.parseVar (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13459:12)
+      at JSXParserMixin.parseVarStatement (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13306:10)
+      at JSXParserMixin.parseStatementContent (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12927:23)
+      at JSXParserMixin.parseStatementLike (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12843:17)
+      at JSXParserMixin.parseModuleItem (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12820:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13392:36)
+      at JSXParserMixin.parseBlockBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13385:10)
+      at JSXParserMixin.parseProgram (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12698:10)
+      at JSXParserMixin.parseTopLevel (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12688:25)
+      at JSXParserMixin.parse (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:14568:25)
+      at parse (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:14602:38)
+      at parser (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/core/lib/parser/index.js:41:34)
+      at parser.next (<anonymous>)
+      at normalizeFile (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/core/lib/transformation/normalize-file.js:64:37)
+      at normalizeFile.next (<anonymous>)
+      at run (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/core/lib/transformation/index.js:22:50)
+      at run.next (<anonymous>)
+      at transform (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/core/lib/transform.js:22:33)
+      at transform.next (<anonymous>)
+      at step (/Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:261:32)
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:273:13
+      at async.call.result.err.err (/Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:223:11)
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:189:28
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/core/lib/gensync-utils/async.js:67:7
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:113:33
+      at step (/Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:287:14)
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:273:13
+      at async.call.result.err.err (/Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:223:11)
+10:34:29 AM [vite] hmr update /src/pages/Register.jsx
+10:44:39 AM [vite] hmr update /src/pages/Register.jsx
+10:44:39 AM [vite] Internal server error: /Users/ashirwadk/Project/pepsico/frontend/src/pages/Register.jsx: Unexpected token (409:4)
+
+  407 |   // OTP verification screen
+  408 |   if (step === 'otp') {
+> 409 |     return (
+      |     ^
+  410 |       <div style={{ 
+  411 |         minHeight: 'calc(100vh - 200px)', 
+  412 |         display: 'flex', 
+  Plugin: vite:react-babel
+  File: /Users/ashirwadk/Project/pepsico/frontend/src/pages/Register.jsx:409:4
+  407|    // OTP verification screen
+  408|    if (step === 'otp') {
+  409|      return (
+     |      ^
+  410|        <div style={{ 
+  411|          minHeight: 'calc(100vh - 200px)', 
+      at constructor (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:367:19)
+      at JSXParserMixin.raise (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:6624:19)
+      at JSXParserMixin.unexpected (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:6644:16)
+      at JSXParserMixin.parseExprAtom (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11508:22)
+      at JSXParserMixin.parseExprAtom (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:4793:20)
+      at JSXParserMixin.parseExprSubscripts (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11145:23)
+      at JSXParserMixin.parseUpdate (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11130:21)
+      at JSXParserMixin.parseMaybeUnary (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11110:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10963:61)
+      at JSXParserMixin.parseExprOps (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10968:23)
+      at JSXParserMixin.parseMaybeConditional (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10945:23)
+      at JSXParserMixin.parseMaybeAssign (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10895:21)
+      at JSXParserMixin.parseExpressionBase (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10848:23)
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10844:39
+      at JSXParserMixin.allowInAnd (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12500:12)
+      at JSXParserMixin.parseExpression (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10844:17)
+      at JSXParserMixin.jsxParseExpressionContainer (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:4661:31)
+      at JSXParserMixin.jsxParseElementAt (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:4740:36)
+      at JSXParserMixin.jsxParseElement (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:4778:17)
+      at JSXParserMixin.parseExprAtom (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:4788:19)
+      at JSXParserMixin.parseExprSubscripts (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11145:23)
+      at JSXParserMixin.parseUpdate (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11130:21)
+      at JSXParserMixin.parseMaybeUnary (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11110:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10963:61)
+      at JSXParserMixin.parseExprOps (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10968:23)
+      at JSXParserMixin.parseMaybeConditional (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10945:23)
+      at JSXParserMixin.parseMaybeAssign (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10895:21)
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10864:39
+      at JSXParserMixin.allowInAnd (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12500:12)
+      at JSXParserMixin.parseMaybeAssignAllowIn (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10864:17)
+      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12567:17)
+      at JSXParserMixin.parseParenAndDistinguishExpression (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11747:28)
+      at JSXParserMixin.parseExprAtom (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11395:23)
+      at JSXParserMixin.parseExprAtom (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:4793:20)
+      at JSXParserMixin.parseExprSubscripts (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11145:23)
+      at JSXParserMixin.parseUpdate (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11130:21)
+      at JSXParserMixin.parseMaybeUnary (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11110:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10963:61)
+      at JSXParserMixin.parseExprOps (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10968:23)
+      at JSXParserMixin.parseMaybeConditional (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10945:23)
+      at JSXParserMixin.parseMaybeAssign (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10895:21)
+      at JSXParserMixin.parseExpressionBase (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10848:23)
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10844:39
+      at JSXParserMixin.allowInAnd (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12495:16)
+      at JSXParserMixin.parseExpression (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10844:17)
+      at JSXParserMixin.parseReturnStatement (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13218:28)
+      at JSXParserMixin.parseStatementContent (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12874:21)
+      at JSXParserMixin.parseStatementLike (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12843:17)
+      at JSXParserMixin.parseStatementListItem (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12823:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13392:61)
+10:44:39 AM [vite] Internal server error: /Users/ashirwadk/Project/pepsico/frontend/src/pages/Register.jsx: Unexpected token (409:4)
+
+  407 |   // OTP verification screen
+  408 |   if (step === 'otp') {
+> 409 |     return (
+      |     ^
+  410 |       <div style={{ 
+  411 |         minHeight: 'calc(100vh - 200px)', 
+  412 |         display: 'flex', 
+  Plugin: vite:react-babel
+  File: /Users/ashirwadk/Project/pepsico/frontend/src/pages/Register.jsx:409:4
+  407|    // OTP verification screen
+  408|    if (step === 'otp') {
+  409|      return (
+     |      ^
+  410|        <div style={{ 
+  411|          minHeight: 'calc(100vh - 200px)', 
+      at constructor (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:367:19)
+      at JSXParserMixin.raise (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:6624:19)
+      at JSXParserMixin.unexpected (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:6644:16)
+      at JSXParserMixin.parseExprAtom (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11508:22)
+      at JSXParserMixin.parseExprAtom (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:4793:20)
+      at JSXParserMixin.parseExprSubscripts (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11145:23)
+      at JSXParserMixin.parseUpdate (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11130:21)
+      at JSXParserMixin.parseMaybeUnary (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11110:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10963:61)
+      at JSXParserMixin.parseExprOps (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10968:23)
+      at JSXParserMixin.parseMaybeConditional (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10945:23)
+      at JSXParserMixin.parseMaybeAssign (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10895:21)
+      at JSXParserMixin.parseExpressionBase (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10848:23)
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10844:39
+      at JSXParserMixin.allowInAnd (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12500:12)
+      at JSXParserMixin.parseExpression (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10844:17)
+      at JSXParserMixin.jsxParseExpressionContainer (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:4661:31)
+      at JSXParserMixin.jsxParseElementAt (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:4740:36)
+      at JSXParserMixin.jsxParseElement (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:4778:17)
+      at JSXParserMixin.parseExprAtom (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:4788:19)
+      at JSXParserMixin.parseExprSubscripts (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11145:23)
+      at JSXParserMixin.parseUpdate (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11130:21)
+      at JSXParserMixin.parseMaybeUnary (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11110:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10963:61)
+      at JSXParserMixin.parseExprOps (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10968:23)
+      at JSXParserMixin.parseMaybeConditional (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10945:23)
+      at JSXParserMixin.parseMaybeAssign (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10895:21)
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10864:39
+      at JSXParserMixin.allowInAnd (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12500:12)
+      at JSXParserMixin.parseMaybeAssignAllowIn (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10864:17)
+      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12567:17)
+      at JSXParserMixin.parseParenAndDistinguishExpression (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11747:28)
+      at JSXParserMixin.parseExprAtom (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11395:23)
+      at JSXParserMixin.parseExprAtom (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:4793:20)
+      at JSXParserMixin.parseExprSubscripts (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11145:23)
+      at JSXParserMixin.parseUpdate (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11130:21)
+      at JSXParserMixin.parseMaybeUnary (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11110:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10963:61)
+      at JSXParserMixin.parseExprOps (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10968:23)
+      at JSXParserMixin.parseMaybeConditional (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10945:23)
+      at JSXParserMixin.parseMaybeAssign (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10895:21)
+      at JSXParserMixin.parseExpressionBase (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10848:23)
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10844:39
+      at JSXParserMixin.allowInAnd (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12495:16)
+      at JSXParserMixin.parseExpression (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10844:17)
+      at JSXParserMixin.parseReturnStatement (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13218:28)
+      at JSXParserMixin.parseStatementContent (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12874:21)
+      at JSXParserMixin.parseStatementLike (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12843:17)
+      at JSXParserMixin.parseStatementListItem (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12823:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13392:61)
+10:48:27 AM [vite] Pre-transform error: /Users/ashirwadk/Project/pepsico/frontend/src/pages/Register.jsx: Unexpected token (409:4)
+
+  407 |   // OTP verification screen
+  408 |   if (step === 'otp') {
+> 409 |     return (
+      |     ^
+  410 |       <div style={{ 
+  411 |         minHeight: 'calc(100vh - 200px)', 
+  412 |         display: 'flex', 
+10:48:27 AM [vite] Internal server error: /Users/ashirwadk/Project/pepsico/frontend/src/pages/Register.jsx: Unexpected token (409:4)
+
+  407 |   // OTP verification screen
+  408 |   if (step === 'otp') {
+> 409 |     return (
+      |     ^
+  410 |       <div style={{ 
+  411 |         minHeight: 'calc(100vh - 200px)', 
+  412 |         display: 'flex', 
+  Plugin: vite:react-babel
+  File: /Users/ashirwadk/Project/pepsico/frontend/src/pages/Register.jsx:409:4
+  407|    // OTP verification screen
+  408|    if (step === 'otp') {
+  409|      return (
+     |      ^
+  410|        <div style={{ 
+  411|          minHeight: 'calc(100vh - 200px)', 
+      at constructor (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:367:19)
+      at JSXParserMixin.raise (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:6624:19)
+      at JSXParserMixin.unexpected (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:6644:16)
+      at JSXParserMixin.parseExprAtom (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11508:22)
+      at JSXParserMixin.parseExprAtom (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:4793:20)
+      at JSXParserMixin.parseExprSubscripts (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11145:23)
+      at JSXParserMixin.parseUpdate (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11130:21)
+      at JSXParserMixin.parseMaybeUnary (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11110:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10963:61)
+      at JSXParserMixin.parseExprOps (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10968:23)
+      at JSXParserMixin.parseMaybeConditional (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10945:23)
+      at JSXParserMixin.parseMaybeAssign (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10895:21)
+      at JSXParserMixin.parseExpressionBase (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10848:23)
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10844:39
+      at JSXParserMixin.allowInAnd (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12500:12)
+      at JSXParserMixin.parseExpression (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10844:17)
+      at JSXParserMixin.jsxParseExpressionContainer (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:4661:31)
+      at JSXParserMixin.jsxParseElementAt (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:4740:36)
+      at JSXParserMixin.jsxParseElement (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:4778:17)
+      at JSXParserMixin.parseExprAtom (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:4788:19)
+      at JSXParserMixin.parseExprSubscripts (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11145:23)
+      at JSXParserMixin.parseUpdate (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11130:21)
+      at JSXParserMixin.parseMaybeUnary (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11110:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10963:61)
+      at JSXParserMixin.parseExprOps (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10968:23)
+      at JSXParserMixin.parseMaybeConditional (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10945:23)
+      at JSXParserMixin.parseMaybeAssign (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10895:21)
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10864:39
+      at JSXParserMixin.allowInAnd (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12500:12)
+      at JSXParserMixin.parseMaybeAssignAllowIn (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10864:17)
+      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12567:17)
+      at JSXParserMixin.parseParenAndDistinguishExpression (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11747:28)
+      at JSXParserMixin.parseExprAtom (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11395:23)
+      at JSXParserMixin.parseExprAtom (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:4793:20)
+      at JSXParserMixin.parseExprSubscripts (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11145:23)
+      at JSXParserMixin.parseUpdate (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11130:21)
+      at JSXParserMixin.parseMaybeUnary (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11110:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10963:61)
+      at JSXParserMixin.parseExprOps (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10968:23)
+      at JSXParserMixin.parseMaybeConditional (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10945:23)
+      at JSXParserMixin.parseMaybeAssign (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10895:21)
+      at JSXParserMixin.parseExpressionBase (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10848:23)
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10844:39
+      at JSXParserMixin.allowInAnd (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12495:16)
+      at JSXParserMixin.parseExpression (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10844:17)
+      at JSXParserMixin.parseReturnStatement (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13218:28)
+      at JSXParserMixin.parseStatementContent (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12874:21)
+      at JSXParserMixin.parseStatementLike (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12843:17)
+      at JSXParserMixin.parseStatementListItem (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12823:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13392:61)
+10:48:27 AM [vite] Internal server error: /Users/ashirwadk/Project/pepsico/frontend/src/pages/Register.jsx: Unexpected token (409:4)
+
+  407 |   // OTP verification screen
+  408 |   if (step === 'otp') {
+> 409 |     return (
+      |     ^
+  410 |       <div style={{ 
+  411 |         minHeight: 'calc(100vh - 200px)', 
+  412 |         display: 'flex', 
+  Plugin: vite:react-babel
+  File: /Users/ashirwadk/Project/pepsico/frontend/src/pages/Register.jsx:409:4
+  407|    // OTP verification screen
+  408|    if (step === 'otp') {
+  409|      return (
+     |      ^
+  410|        <div style={{ 
+  411|          minHeight: 'calc(100vh - 200px)', 
+      at constructor (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:367:19)
+      at JSXParserMixin.raise (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:6624:19)
+      at JSXParserMixin.unexpected (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:6644:16)
+      at JSXParserMixin.parseExprAtom (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11508:22)
+      at JSXParserMixin.parseExprAtom (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:4793:20)
+      at JSXParserMixin.parseExprSubscripts (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11145:23)
+      at JSXParserMixin.parseUpdate (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11130:21)
+      at JSXParserMixin.parseMaybeUnary (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11110:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10963:61)
+      at JSXParserMixin.parseExprOps (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10968:23)
+      at JSXParserMixin.parseMaybeConditional (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10945:23)
+      at JSXParserMixin.parseMaybeAssign (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10895:21)
+      at JSXParserMixin.parseExpressionBase (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10848:23)
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10844:39
+      at JSXParserMixin.allowInAnd (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12500:12)
+      at JSXParserMixin.parseExpression (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10844:17)
+      at JSXParserMixin.jsxParseExpressionContainer (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:4661:31)
+      at JSXParserMixin.jsxParseElementAt (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:4740:36)
+      at JSXParserMixin.jsxParseElement (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:4778:17)
+      at JSXParserMixin.parseExprAtom (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:4788:19)
+      at JSXParserMixin.parseExprSubscripts (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11145:23)
+      at JSXParserMixin.parseUpdate (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11130:21)
+      at JSXParserMixin.parseMaybeUnary (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11110:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10963:61)
+      at JSXParserMixin.parseExprOps (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10968:23)
+      at JSXParserMixin.parseMaybeConditional (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10945:23)
+      at JSXParserMixin.parseMaybeAssign (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10895:21)
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10864:39
+      at JSXParserMixin.allowInAnd (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12500:12)
+      at JSXParserMixin.parseMaybeAssignAllowIn (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10864:17)
+      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12567:17)
+      at JSXParserMixin.parseParenAndDistinguishExpression (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11747:28)
+      at JSXParserMixin.parseExprAtom (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11395:23)
+      at JSXParserMixin.parseExprAtom (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:4793:20)
+      at JSXParserMixin.parseExprSubscripts (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11145:23)
+      at JSXParserMixin.parseUpdate (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11130:21)
+      at JSXParserMixin.parseMaybeUnary (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11110:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10963:61)
+      at JSXParserMixin.parseExprOps (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10968:23)
+      at JSXParserMixin.parseMaybeConditional (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10945:23)
+      at JSXParserMixin.parseMaybeAssign (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10895:21)
+      at JSXParserMixin.parseExpressionBase (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10848:23)
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10844:39
+      at JSXParserMixin.allowInAnd (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12495:16)
+      at JSXParserMixin.parseExpression (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10844:17)
+      at JSXParserMixin.parseReturnStatement (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13218:28)
+      at JSXParserMixin.parseStatementContent (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12874:21)
+      at JSXParserMixin.parseStatementLike (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12843:17)
+      at JSXParserMixin.parseStatementListItem (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12823:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13392:61)
+12:14:41 PM [vite] Internal server error: /Users/ashirwadk/Project/pepsico/frontend/src/pages/Register.jsx: Unexpected token (409:4)
+
+  407 |   // OTP verification screen
+  408 |   if (step === 'otp') {
+> 409 |     return (
+      |     ^
+  410 |       <div style={{ 
+  411 |         minHeight: 'calc(100vh - 200px)', 
+  412 |         display: 'flex', 
+  Plugin: vite:react-babel
+  File: /Users/ashirwadk/Project/pepsico/frontend/src/pages/Register.jsx:409:4
+  407|    // OTP verification screen
+  408|    if (step === 'otp') {
+  409|      return (
+     |      ^
+  410|        <div style={{ 
+  411|          minHeight: 'calc(100vh - 200px)', 
+      at constructor (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:367:19)
+      at JSXParserMixin.raise (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:6624:19)
+      at JSXParserMixin.unexpected (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:6644:16)
+      at JSXParserMixin.parseExprAtom (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11508:22)
+      at JSXParserMixin.parseExprAtom (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:4793:20)
+      at JSXParserMixin.parseExprSubscripts (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11145:23)
+      at JSXParserMixin.parseUpdate (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11130:21)
+      at JSXParserMixin.parseMaybeUnary (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11110:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10963:61)
+      at JSXParserMixin.parseExprOps (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10968:23)
+      at JSXParserMixin.parseMaybeConditional (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10945:23)
+      at JSXParserMixin.parseMaybeAssign (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10895:21)
+      at JSXParserMixin.parseExpressionBase (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10848:23)
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10844:39
+      at JSXParserMixin.allowInAnd (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12500:12)
+      at JSXParserMixin.parseExpression (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10844:17)
+      at JSXParserMixin.jsxParseExpressionContainer (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:4661:31)
+      at JSXParserMixin.jsxParseElementAt (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:4740:36)
+      at JSXParserMixin.jsxParseElement (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:4778:17)
+      at JSXParserMixin.parseExprAtom (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:4788:19)
+      at JSXParserMixin.parseExprSubscripts (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11145:23)
+      at JSXParserMixin.parseUpdate (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11130:21)
+      at JSXParserMixin.parseMaybeUnary (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11110:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10963:61)
+      at JSXParserMixin.parseExprOps (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10968:23)
+      at JSXParserMixin.parseMaybeConditional (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10945:23)
+      at JSXParserMixin.parseMaybeAssign (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10895:21)
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10864:39
+      at JSXParserMixin.allowInAnd (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12500:12)
+      at JSXParserMixin.parseMaybeAssignAllowIn (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10864:17)
+      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12567:17)
+      at JSXParserMixin.parseParenAndDistinguishExpression (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11747:28)
+      at JSXParserMixin.parseExprAtom (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11395:23)
+      at JSXParserMixin.parseExprAtom (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:4793:20)
+      at JSXParserMixin.parseExprSubscripts (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11145:23)
+      at JSXParserMixin.parseUpdate (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11130:21)
+      at JSXParserMixin.parseMaybeUnary (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11110:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10963:61)
+      at JSXParserMixin.parseExprOps (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10968:23)
+      at JSXParserMixin.parseMaybeConditional (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10945:23)
+      at JSXParserMixin.parseMaybeAssign (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10895:21)
+      at JSXParserMixin.parseExpressionBase (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10848:23)
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10844:39
+      at JSXParserMixin.allowInAnd (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12495:16)
+      at JSXParserMixin.parseExpression (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10844:17)
+      at JSXParserMixin.parseReturnStatement (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13218:28)
+      at JSXParserMixin.parseStatementContent (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12874:21)
+      at JSXParserMixin.parseStatementLike (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12843:17)
+      at JSXParserMixin.parseStatementListItem (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12823:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13392:61)
+12:14:48 PM [vite] hmr update /src/pages/Register.jsx
+12:14:49 PM [vite] Pre-transform error: Failed to resolve import "../components/Nav" from "src/pages/Register.jsx". Does the file exist?
+12:14:49 PM [vite] Internal server error: Failed to resolve import "../components/Nav" from "src/pages/Register.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /Users/ashirwadk/Project/pepsico/frontend/src/pages/Register.jsx:6:16
+  6  |  import { motion } from "framer-motion";
+  7  |  import BrandVideoLogo from "../components/BrandVideoLogo";
+  8  |  import Nav from "../components/Nav";
+     |                   ^
+  9  |  const rawApiBase = import.meta.env.VITE_API_BASE || "http://localhost:5001";
+  10 |  const API_BASE = rawApiBase.replace(/\/$/, "");
+      at TransformPluginContext._formatError (file:///Users/ashirwadk/Project/pepsico/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49258:41)
+      at TransformPluginContext.error (file:///Users/ashirwadk/Project/pepsico/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49253:16)
+      at normalizeUrl (file:///Users/ashirwadk/Project/pepsico/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///Users/ashirwadk/Project/pepsico/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39
+      at async Promise.all (index 6)
+      at async TransformPluginContext.transform (file:///Users/ashirwadk/Project/pepsico/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64366:7)
+      at async PluginContainer.transform (file:///Users/ashirwadk/Project/pepsico/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///Users/ashirwadk/Project/pepsico/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:51978:27)
+      at async viteTransformMiddleware (file:///Users/ashirwadk/Project/pepsico/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:62106:24)
+12:14:49 PM [vite] Internal server error: Failed to resolve import "../components/Nav" from "src/pages/Register.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /Users/ashirwadk/Project/pepsico/frontend/src/pages/Register.jsx:6:16
+  6  |  import { motion } from "framer-motion";
+  7  |  import BrandVideoLogo from "../components/BrandVideoLogo";
+  8  |  import Nav from "../components/Nav";
+     |                   ^
+  9  |  const rawApiBase = import.meta.env.VITE_API_BASE || "http://localhost:5001";
+  10 |  const API_BASE = rawApiBase.replace(/\/$/, "");
+      at TransformPluginContext._formatError (file:///Users/ashirwadk/Project/pepsico/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49258:41)
+      at TransformPluginContext.error (file:///Users/ashirwadk/Project/pepsico/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49253:16)
+      at normalizeUrl (file:///Users/ashirwadk/Project/pepsico/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///Users/ashirwadk/Project/pepsico/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39
+      at async Promise.all (index 6)
+      at async TransformPluginContext.transform (file:///Users/ashirwadk/Project/pepsico/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64366:7)
+      at async PluginContainer.transform (file:///Users/ashirwadk/Project/pepsico/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///Users/ashirwadk/Project/pepsico/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:51978:27)
+      at async viteTransformMiddleware (file:///Users/ashirwadk/Project/pepsico/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:62106:24)
+12:14:53 PM [vite] Internal server error: Failed to resolve import "../components/Nav" from "src/pages/Register.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /Users/ashirwadk/Project/pepsico/frontend/src/pages/Register.jsx:6:16
+  6  |  import { motion } from "framer-motion";
+  7  |  import BrandVideoLogo from "../components/BrandVideoLogo";
+  8  |  import Nav from "../components/Nav";
+     |                   ^
+  9  |  const rawApiBase = import.meta.env.VITE_API_BASE || "http://localhost:5001";
+  10 |  const API_BASE = rawApiBase.replace(/\/$/, "");
+      at TransformPluginContext._formatError (file:///Users/ashirwadk/Project/pepsico/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49258:41)
+      at TransformPluginContext.error (file:///Users/ashirwadk/Project/pepsico/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49253:16)
+      at normalizeUrl (file:///Users/ashirwadk/Project/pepsico/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///Users/ashirwadk/Project/pepsico/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39
+      at async Promise.all (index 6)
+      at async TransformPluginContext.transform (file:///Users/ashirwadk/Project/pepsico/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64366:7)
+      at async PluginContainer.transform (file:///Users/ashirwadk/Project/pepsico/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///Users/ashirwadk/Project/pepsico/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:51978:27)
+      at async viteTransformMiddleware (file:///Users/ashirwadk/Project/pepsico/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:62106:24)
+12:15:15 PM [vite] Internal server error: Failed to resolve import "../components/Nav" from "src/pages/Register.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /Users/ashirwadk/Project/pepsico/frontend/src/pages/Register.jsx:6:16
+  6  |  import { motion } from "framer-motion";
+  7  |  import BrandVideoLogo from "../components/BrandVideoLogo";
+  8  |  import Nav from "../components/Nav";
+     |                   ^
+  9  |  const rawApiBase = import.meta.env.VITE_API_BASE || "http://localhost:5001";
+  10 |  const API_BASE = rawApiBase.replace(/\/$/, "");
+      at TransformPluginContext._formatError (file:///Users/ashirwadk/Project/pepsico/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49258:41)
+      at TransformPluginContext.error (file:///Users/ashirwadk/Project/pepsico/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49253:16)
+      at normalizeUrl (file:///Users/ashirwadk/Project/pepsico/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///Users/ashirwadk/Project/pepsico/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39
+      at async Promise.all (index 6)
+      at async TransformPluginContext.transform (file:///Users/ashirwadk/Project/pepsico/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64366:7)
+      at async PluginContainer.transform (file:///Users/ashirwadk/Project/pepsico/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///Users/ashirwadk/Project/pepsico/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:51978:27)
+      at async viteTransformMiddleware (file:///Users/ashirwadk/Project/pepsico/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:62106:24)
+12:15:36 PM [vite] Internal server error: Failed to resolve import "../components/Nav" from "src/pages/Register.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /Users/ashirwadk/Project/pepsico/frontend/src/pages/Register.jsx:6:16
+  6  |  import { motion } from "framer-motion";
+  7  |  import BrandVideoLogo from "../components/BrandVideoLogo";
+  8  |  import Nav from "../components/Nav";
+     |                   ^
+  9  |  const rawApiBase = import.meta.env.VITE_API_BASE || "http://localhost:5001";
+  10 |  const API_BASE = rawApiBase.replace(/\/$/, "");
+      at TransformPluginContext._formatError (file:///Users/ashirwadk/Project/pepsico/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49258:41)
+      at TransformPluginContext.error (file:///Users/ashirwadk/Project/pepsico/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49253:16)
+      at normalizeUrl (file:///Users/ashirwadk/Project/pepsico/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///Users/ashirwadk/Project/pepsico/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39
+      at async Promise.all (index 6)
+      at async TransformPluginContext.transform (file:///Users/ashirwadk/Project/pepsico/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64366:7)
+      at async PluginContainer.transform (file:///Users/ashirwadk/Project/pepsico/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///Users/ashirwadk/Project/pepsico/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:51978:27)
+      at async viteTransformMiddleware (file:///Users/ashirwadk/Project/pepsico/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:62106:24)
+12:17:01 PM [vite] hmr update /src/App.jsx
+12:18:22 PM [vite] hmr update /src/pages/Register.jsx
+12:18:23 PM [vite] hmr update /src/pages/Register.jsx
+12:18:36 PM [vite] page reload src/components/Nav.jsx
+12:42:37 PM [vite] hmr update /src/pages/admin-sections/DeliveryAttendanceTab.jsx
+12:42:37 PM [vite] Internal server error: /Users/ashirwadk/Project/pepsico/frontend/src/pages/admin-sections/DeliveryAttendanceTab.jsx: 'import' and 'export' may only appear at the top level. (61:0)
+
+  59 |
+  60 | export default function DeliveryAttendanceTab({ adminKey }) {
+> 61 | export default function DeliveryAttendanceTab({ managerMode = false }) {
+     | ^
+  62 |   const { adminKey } = useAdminAuth ? useAdminAuth() : { adminKey: null }
+  63 |   const managerToken = localStorage.getItem('manager_token')
+  64 |
+  Plugin: vite:react-babel
+  File: /Users/ashirwadk/Project/pepsico/frontend/src/pages/admin-sections/DeliveryAttendanceTab.jsx:61:0
+  59 |  
+  60 |  export default function DeliveryAttendanceTab({ adminKey }) {
+  61 |  export default function DeliveryAttendanceTab({ managerMode = false }) {
+     |  ^
+  62 |    const { adminKey } = useAdminAuth ? useAdminAuth() : { adminKey: null }
+  63 |    const managerToken = localStorage.getItem('manager_token')
+      at constructor (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:367:19)
+      at JSXParserMixin.raise (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:6624:19)
+      at JSXParserMixin.parseStatementContent (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12947:18)
+      at JSXParserMixin.parseStatementLike (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12843:17)
+      at JSXParserMixin.parseStatementListItem (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12823:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13392:61)
+      at JSXParserMixin.parseBlockBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13385:10)
+      at JSXParserMixin.parseBlock (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13373:10)
+      at JSXParserMixin.parseFunctionBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12174:24)
+      at JSXParserMixin.parseFunctionBodyAndFinish (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12160:10)
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13521:12
+      at JSXParserMixin.withSmartMixTopicForbiddingContext (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12477:14)
+      at JSXParserMixin.parseFunction (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13520:10)
+      at JSXParserMixin.parseExportDefaultExpression (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13983:19)
+      at JSXParserMixin.parseExport (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13904:25)
+      at JSXParserMixin.parseStatementContent (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12954:27)
+      at JSXParserMixin.parseStatementLike (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12843:17)
+      at JSXParserMixin.parseModuleItem (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12820:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13392:36)
+      at JSXParserMixin.parseBlockBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13385:10)
+      at JSXParserMixin.parseProgram (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12698:10)
+      at JSXParserMixin.parseTopLevel (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12688:25)
+      at JSXParserMixin.parse (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:14568:25)
+      at parse (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:14602:38)
+      at parser (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/core/lib/parser/index.js:41:34)
+      at parser.next (<anonymous>)
+      at normalizeFile (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/core/lib/transformation/normalize-file.js:64:37)
+      at normalizeFile.next (<anonymous>)
+      at run (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/core/lib/transformation/index.js:22:50)
+      at run.next (<anonymous>)
+      at transform (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/core/lib/transform.js:22:33)
+      at transform.next (<anonymous>)
+      at step (/Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:261:32)
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:273:13
+      at async.call.result.err.err (/Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:223:11)
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:189:28
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/core/lib/gensync-utils/async.js:67:7
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:113:33
+      at step (/Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:287:14)
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:273:13
+      at async.call.result.err.err (/Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:223:11)
+12:42:37 PM [vite] Internal server error: /Users/ashirwadk/Project/pepsico/frontend/src/pages/admin-sections/DeliveryAttendanceTab.jsx: 'import' and 'export' may only appear at the top level. (61:0)
+
+  59 |
+  60 | export default function DeliveryAttendanceTab({ adminKey }) {
+> 61 | export default function DeliveryAttendanceTab({ managerMode = false }) {
+     | ^
+  62 |   const { adminKey } = useAdminAuth ? useAdminAuth() : { adminKey: null }
+  63 |   const managerToken = localStorage.getItem('manager_token')
+  64 |
+  Plugin: vite:react-babel
+  File: /Users/ashirwadk/Project/pepsico/frontend/src/pages/admin-sections/DeliveryAttendanceTab.jsx:61:0
+  59 |  
+  60 |  export default function DeliveryAttendanceTab({ adminKey }) {
+  61 |  export default function DeliveryAttendanceTab({ managerMode = false }) {
+     |  ^
+  62 |    const { adminKey } = useAdminAuth ? useAdminAuth() : { adminKey: null }
+  63 |    const managerToken = localStorage.getItem('manager_token')
+      at constructor (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:367:19)
+      at JSXParserMixin.raise (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:6624:19)
+      at JSXParserMixin.parseStatementContent (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12947:18)
+      at JSXParserMixin.parseStatementLike (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12843:17)
+      at JSXParserMixin.parseStatementListItem (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12823:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13392:61)
+      at JSXParserMixin.parseBlockBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13385:10)
+      at JSXParserMixin.parseBlock (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13373:10)
+      at JSXParserMixin.parseFunctionBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12174:24)
+      at JSXParserMixin.parseFunctionBodyAndFinish (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12160:10)
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13521:12
+      at JSXParserMixin.withSmartMixTopicForbiddingContext (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12477:14)
+      at JSXParserMixin.parseFunction (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13520:10)
+      at JSXParserMixin.parseExportDefaultExpression (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13983:19)
+      at JSXParserMixin.parseExport (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13904:25)
+      at JSXParserMixin.parseStatementContent (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12954:27)
+      at JSXParserMixin.parseStatementLike (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12843:17)
+      at JSXParserMixin.parseModuleItem (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12820:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13392:36)
+      at JSXParserMixin.parseBlockBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13385:10)
+      at JSXParserMixin.parseProgram (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12698:10)
+      at JSXParserMixin.parseTopLevel (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12688:25)
+      at JSXParserMixin.parse (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:14568:25)
+      at parse (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:14602:38)
+      at parser (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/core/lib/parser/index.js:41:34)
+      at parser.next (<anonymous>)
+      at normalizeFile (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/core/lib/transformation/normalize-file.js:64:37)
+      at normalizeFile.next (<anonymous>)
+      at run (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/core/lib/transformation/index.js:22:50)
+      at run.next (<anonymous>)
+      at transform (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/core/lib/transform.js:22:33)
+      at transform.next (<anonymous>)
+      at step (/Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:261:32)
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:273:13
+      at async.call.result.err.err (/Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:223:11)
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:189:28
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/core/lib/gensync-utils/async.js:67:7
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:113:33
+      at step (/Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:287:14)
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:273:13
+      at async.call.result.err.err (/Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:223:11)
+12:42:56 PM [vite] hmr update /src/pages/admin-sections/DeliveryAttendanceTab.jsx
+12:43:18 PM [vite] hmr update /src/pages/admin-sections/DeliveryAttendanceTab.jsx
+12:44:48 PM [vite] hmr update /src/pages/admin-sections/DeliveryAttendanceTab.jsx
+12:45:03 PM [vite] hmr update /src/pages/admin-sections/DeliveryAttendanceTab.jsx
+12:48:31 PM [vite] hmr update /src/pages/admin-sections/DeliveryAttendanceTab.jsx
+12:48:31 PM [vite] Internal server error: /Users/ashirwadk/Project/pepsico/frontend/src/pages/admin-sections/DeliveryAttendanceTab.jsx: 'import' and 'export' may only appear at the top level. (61:0)
+
+  59 |
+  60 | export default function DeliveryAttendanceTab({ adminKey }) {
+> 61 | export default function DeliveryAttendanceTab({ managerMode = false }) {
+     | ^
+  62 |   const { adminKey } = useAdminAuth ? useAdminAuth() : { adminKey: null }
+  63 |   const managerToken = localStorage.getItem('manager_token')
+  64 |
+  Plugin: vite:react-babel
+  File: /Users/ashirwadk/Project/pepsico/frontend/src/pages/admin-sections/DeliveryAttendanceTab.jsx:61:0
+  59 |  
+  60 |  export default function DeliveryAttendanceTab({ adminKey }) {
+  61 |  export default function DeliveryAttendanceTab({ managerMode = false }) {
+     |  ^
+  62 |    const { adminKey } = useAdminAuth ? useAdminAuth() : { adminKey: null }
+  63 |    const managerToken = localStorage.getItem('manager_token')
+      at constructor (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:367:19)
+      at JSXParserMixin.raise (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:6624:19)
+      at JSXParserMixin.parseStatementContent (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12947:18)
+      at JSXParserMixin.parseStatementLike (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12843:17)
+      at JSXParserMixin.parseStatementListItem (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12823:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13392:61)
+      at JSXParserMixin.parseBlockBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13385:10)
+      at JSXParserMixin.parseBlock (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13373:10)
+      at JSXParserMixin.parseFunctionBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12174:24)
+      at JSXParserMixin.parseFunctionBodyAndFinish (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12160:10)
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13521:12
+      at JSXParserMixin.withSmartMixTopicForbiddingContext (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12477:14)
+      at JSXParserMixin.parseFunction (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13520:10)
+      at JSXParserMixin.parseExportDefaultExpression (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13983:19)
+      at JSXParserMixin.parseExport (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13904:25)
+      at JSXParserMixin.parseStatementContent (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12954:27)
+      at JSXParserMixin.parseStatementLike (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12843:17)
+      at JSXParserMixin.parseModuleItem (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12820:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13392:36)
+      at JSXParserMixin.parseBlockBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13385:10)
+      at JSXParserMixin.parseProgram (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12698:10)
+      at JSXParserMixin.parseTopLevel (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12688:25)
+      at JSXParserMixin.parse (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:14568:25)
+      at parse (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:14602:38)
+      at parser (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/core/lib/parser/index.js:41:34)
+      at parser.next (<anonymous>)
+      at normalizeFile (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/core/lib/transformation/normalize-file.js:64:37)
+      at normalizeFile.next (<anonymous>)
+      at run (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/core/lib/transformation/index.js:22:50)
+      at run.next (<anonymous>)
+      at transform (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/core/lib/transform.js:22:33)
+      at transform.next (<anonymous>)
+      at step (/Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:261:32)
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:273:13
+      at async.call.result.err.err (/Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:223:11)
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:189:28
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/core/lib/gensync-utils/async.js:67:7
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:113:33
+      at step (/Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:287:14)
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:273:13
+      at async.call.result.err.err (/Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:223:11)
+12:48:31 PM [vite] Internal server error: /Users/ashirwadk/Project/pepsico/frontend/src/pages/admin-sections/DeliveryAttendanceTab.jsx: 'import' and 'export' may only appear at the top level. (61:0)
+
+  59 |
+  60 | export default function DeliveryAttendanceTab({ adminKey }) {
+> 61 | export default function DeliveryAttendanceTab({ managerMode = false }) {
+     | ^
+  62 |   const { adminKey } = useAdminAuth ? useAdminAuth() : { adminKey: null }
+  63 |   const managerToken = localStorage.getItem('manager_token')
+  64 |
+  Plugin: vite:react-babel
+  File: /Users/ashirwadk/Project/pepsico/frontend/src/pages/admin-sections/DeliveryAttendanceTab.jsx:61:0
+  59 |  
+  60 |  export default function DeliveryAttendanceTab({ adminKey }) {
+  61 |  export default function DeliveryAttendanceTab({ managerMode = false }) {
+     |  ^
+  62 |    const { adminKey } = useAdminAuth ? useAdminAuth() : { adminKey: null }
+  63 |    const managerToken = localStorage.getItem('manager_token')
+      at constructor (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:367:19)
+      at JSXParserMixin.raise (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:6624:19)
+      at JSXParserMixin.parseStatementContent (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12947:18)
+      at JSXParserMixin.parseStatementLike (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12843:17)
+      at JSXParserMixin.parseStatementListItem (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12823:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13392:61)
+      at JSXParserMixin.parseBlockBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13385:10)
+      at JSXParserMixin.parseBlock (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13373:10)
+      at JSXParserMixin.parseFunctionBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12174:24)
+      at JSXParserMixin.parseFunctionBodyAndFinish (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12160:10)
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13521:12
+      at JSXParserMixin.withSmartMixTopicForbiddingContext (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12477:14)
+      at JSXParserMixin.parseFunction (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13520:10)
+      at JSXParserMixin.parseExportDefaultExpression (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13983:19)
+      at JSXParserMixin.parseExport (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13904:25)
+      at JSXParserMixin.parseStatementContent (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12954:27)
+      at JSXParserMixin.parseStatementLike (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12843:17)
+      at JSXParserMixin.parseModuleItem (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12820:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13392:36)
+      at JSXParserMixin.parseBlockBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13385:10)
+      at JSXParserMixin.parseProgram (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12698:10)
+      at JSXParserMixin.parseTopLevel (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12688:25)
+      at JSXParserMixin.parse (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:14568:25)
+      at parse (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:14602:38)
+      at parser (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/core/lib/parser/index.js:41:34)
+      at parser.next (<anonymous>)
+      at normalizeFile (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/core/lib/transformation/normalize-file.js:64:37)
+      at normalizeFile.next (<anonymous>)
+      at run (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/core/lib/transformation/index.js:22:50)
+      at run.next (<anonymous>)
+      at transform (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/core/lib/transform.js:22:33)
+      at transform.next (<anonymous>)
+      at step (/Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:261:32)
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:273:13
+      at async.call.result.err.err (/Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:223:11)
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:189:28
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/core/lib/gensync-utils/async.js:67:7
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:113:33
+      at step (/Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:287:14)
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:273:13
+      at async.call.result.err.err (/Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:223:11)
+12:48:40 PM [vite] hmr update /src/components/DeliveryAttendanceCard.jsx
+12:48:40 PM [vite] Internal server error: /Users/ashirwadk/Project/pepsico/frontend/src/components/DeliveryAttendanceCard.jsx: Identifier 'suspiciousFlags' has already been declared. (382:8)
+
+  380 |   ].filter(Boolean)
+  381 |   // Completely bypass suspicious flags from displaying
+> 382 |   const suspiciousFlags = []
+      |         ^
+  383 |
+  384 |   return (
+  385 |     <motion.div
+  Plugin: vite:react-babel
+  File: /Users/ashirwadk/Project/pepsico/frontend/src/components/DeliveryAttendanceCard.jsx:382:8
+  380|    ].filter(Boolean)
+  381|    // Completely bypass suspicious flags from displaying
+  382|    const suspiciousFlags = []
+     |          ^
+  383|  
+  384|    return (
+      at constructor (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:367:19)
+      at JSXParserMixin.raise (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:6624:19)
+      at ScopeHandler.checkRedeclarationInScope (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:1646:19)
+      at ScopeHandler.declareName (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:1612:12)
+      at JSXParserMixin.declareNameFromIdentifier (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:7594:16)
+      at JSXParserMixin.checkIdentifier (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:7590:12)
+      at JSXParserMixin.checkLVal (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:7527:12)
+      at JSXParserMixin.parseVarId (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13488:10)
+      at JSXParserMixin.parseVar (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13459:12)
+      at JSXParserMixin.parseVarStatement (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13306:10)
+      at JSXParserMixin.parseStatementContent (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12927:23)
+      at JSXParserMixin.parseStatementLike (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12843:17)
+      at JSXParserMixin.parseStatementListItem (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12823:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13392:61)
+      at JSXParserMixin.parseBlockBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13385:10)
+      at JSXParserMixin.parseBlock (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13373:10)
+      at JSXParserMixin.parseFunctionBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12174:24)
+      at JSXParserMixin.parseArrowExpression (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12149:10)
+      at JSXParserMixin.parseAsyncArrowFromCallExpression (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11328:10)
+      at JSXParserMixin.parseCoverCallAndAsyncArrowHead (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11258:27)
+      at JSXParserMixin.parseSubscript (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11184:19)
+      at JSXParserMixin.parseSubscripts (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11158:19)
+      at JSXParserMixin.parseExprSubscripts (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11149:17)
+      at JSXParserMixin.parseUpdate (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11130:21)
+      at JSXParserMixin.parseMaybeUnary (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11110:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10963:61)
+      at JSXParserMixin.parseExprOps (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10968:23)
+      at JSXParserMixin.parseMaybeConditional (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10945:23)
+      at JSXParserMixin.parseMaybeAssign (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10895:21)
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10864:39
+      at JSXParserMixin.allowInAnd (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12495:16)
+      at JSXParserMixin.parseMaybeAssignAllowIn (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10864:17)
+      at JSXParserMixin.parseVar (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13460:91)
+      at JSXParserMixin.parseVarStatement (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13306:10)
+      at JSXParserMixin.parseStatementContent (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12927:23)
+      at JSXParserMixin.parseStatementLike (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12843:17)
+      at JSXParserMixin.parseStatementListItem (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12823:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13392:61)
+      at JSXParserMixin.parseBlockBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13385:10)
+      at JSXParserMixin.parseBlock (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13373:10)
+      at JSXParserMixin.parseFunctionBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12174:24)
+      at JSXParserMixin.parseFunctionBodyAndFinish (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12160:10)
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13521:12
+      at JSXParserMixin.withSmartMixTopicForbiddingContext (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12477:14)
+      at JSXParserMixin.parseFunction (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13520:10)
+      at JSXParserMixin.parseExportDefaultExpression (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13983:19)
+      at JSXParserMixin.parseExport (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13904:25)
+      at JSXParserMixin.parseStatementContent (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12954:27)
+      at JSXParserMixin.parseStatementLike (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12843:17)
+      at JSXParserMixin.parseModuleItem (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12820:17)
+12:48:40 PM [vite] Internal server error: /Users/ashirwadk/Project/pepsico/frontend/src/components/DeliveryAttendanceCard.jsx: Identifier 'suspiciousFlags' has already been declared. (382:8)
+
+  380 |   ].filter(Boolean)
+  381 |   // Completely bypass suspicious flags from displaying
+> 382 |   const suspiciousFlags = []
+      |         ^
+  383 |
+  384 |   return (
+  385 |     <motion.div
+  Plugin: vite:react-babel
+  File: /Users/ashirwadk/Project/pepsico/frontend/src/components/DeliveryAttendanceCard.jsx:382:8
+  380|    ].filter(Boolean)
+  381|    // Completely bypass suspicious flags from displaying
+  382|    const suspiciousFlags = []
+     |          ^
+  383|  
+  384|    return (
+      at constructor (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:367:19)
+      at JSXParserMixin.raise (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:6624:19)
+      at ScopeHandler.checkRedeclarationInScope (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:1646:19)
+      at ScopeHandler.declareName (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:1612:12)
+      at JSXParserMixin.declareNameFromIdentifier (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:7594:16)
+      at JSXParserMixin.checkIdentifier (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:7590:12)
+      at JSXParserMixin.checkLVal (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:7527:12)
+      at JSXParserMixin.parseVarId (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13488:10)
+      at JSXParserMixin.parseVar (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13459:12)
+      at JSXParserMixin.parseVarStatement (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13306:10)
+      at JSXParserMixin.parseStatementContent (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12927:23)
+      at JSXParserMixin.parseStatementLike (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12843:17)
+      at JSXParserMixin.parseStatementListItem (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12823:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13392:61)
+      at JSXParserMixin.parseBlockBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13385:10)
+      at JSXParserMixin.parseBlock (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13373:10)
+      at JSXParserMixin.parseFunctionBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12174:24)
+      at JSXParserMixin.parseArrowExpression (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12149:10)
+      at JSXParserMixin.parseAsyncArrowFromCallExpression (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11328:10)
+      at JSXParserMixin.parseCoverCallAndAsyncArrowHead (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11258:27)
+      at JSXParserMixin.parseSubscript (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11184:19)
+      at JSXParserMixin.parseSubscripts (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11158:19)
+      at JSXParserMixin.parseExprSubscripts (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11149:17)
+      at JSXParserMixin.parseUpdate (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11130:21)
+      at JSXParserMixin.parseMaybeUnary (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11110:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10963:61)
+      at JSXParserMixin.parseExprOps (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10968:23)
+      at JSXParserMixin.parseMaybeConditional (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10945:23)
+      at JSXParserMixin.parseMaybeAssign (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10895:21)
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10864:39
+      at JSXParserMixin.allowInAnd (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12495:16)
+      at JSXParserMixin.parseMaybeAssignAllowIn (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10864:17)
+      at JSXParserMixin.parseVar (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13460:91)
+      at JSXParserMixin.parseVarStatement (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13306:10)
+      at JSXParserMixin.parseStatementContent (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12927:23)
+      at JSXParserMixin.parseStatementLike (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12843:17)
+      at JSXParserMixin.parseStatementListItem (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12823:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13392:61)
+      at JSXParserMixin.parseBlockBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13385:10)
+      at JSXParserMixin.parseBlock (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13373:10)
+      at JSXParserMixin.parseFunctionBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12174:24)
+      at JSXParserMixin.parseFunctionBodyAndFinish (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12160:10)
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13521:12
+      at JSXParserMixin.withSmartMixTopicForbiddingContext (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12477:14)
+      at JSXParserMixin.parseFunction (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13520:10)
+      at JSXParserMixin.parseExportDefaultExpression (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13983:19)
+      at JSXParserMixin.parseExport (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13904:25)
+      at JSXParserMixin.parseStatementContent (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12954:27)
+      at JSXParserMixin.parseStatementLike (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12843:17)
+      at JSXParserMixin.parseModuleItem (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12820:17)
+12:48:50 PM [vite] hmr update /src/components/DeliveryAttendanceCard.jsx
+12:48:51 PM [vite] hmr update /src/pages/admin-sections/DeliveryAttendanceTab.jsx
+12:50:36 PM [vite] hmr update /src/components/DeliveryAttendanceCard.jsx
+12:50:36 PM [vite] Internal server error: /Users/ashirwadk/Project/pepsico/frontend/src/components/DeliveryAttendanceCard.jsx: Identifier 'API_BASE' has already been declared. (5:6)
+
+  3 |
+  4 | const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:5001'
+> 5 | const API_BASE = import.meta.env.VITE_API_BASE 
+    |       ^
+  6 |   ? import.meta.env.VITE_API_BASE.replace(/\/$/, '') 
+  7 |   : (import.meta.env.PROD ? 'https://pepsico-backend.vercel.app' : 'http://localhost:5001')
+  8 |
+  Plugin: vite:react-babel
+  File: /Users/ashirwadk/Project/pepsico/frontend/src/components/DeliveryAttendanceCard.jsx:5:6
+  3  |  
+  4  |  const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:5001'
+  5  |  const API_BASE = import.meta.env.VITE_API_BASE 
+     |        ^
+  6  |    ? import.meta.env.VITE_API_BASE.replace(/\/$/, '') 
+  7  |    : (import.meta.env.PROD ? 'https://pepsico-backend.vercel.app' : 'http://localhost:5001')
+      at constructor (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:367:19)
+      at JSXParserMixin.raise (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:6624:19)
+      at ScopeHandler.checkRedeclarationInScope (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:1646:19)
+      at ScopeHandler.declareName (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:1612:12)
+      at JSXParserMixin.declareNameFromIdentifier (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:7594:16)
+      at JSXParserMixin.checkIdentifier (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:7590:12)
+      at JSXParserMixin.checkLVal (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:7527:12)
+      at JSXParserMixin.parseVarId (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13488:10)
+      at JSXParserMixin.parseVar (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13459:12)
+      at JSXParserMixin.parseVarStatement (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13306:10)
+      at JSXParserMixin.parseStatementContent (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12927:23)
+      at JSXParserMixin.parseStatementLike (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12843:17)
+      at JSXParserMixin.parseModuleItem (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12820:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13392:36)
+      at JSXParserMixin.parseBlockBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13385:10)
+      at JSXParserMixin.parseProgram (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12698:10)
+      at JSXParserMixin.parseTopLevel (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12688:25)
+      at JSXParserMixin.parse (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:14568:25)
+      at parse (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:14602:38)
+      at parser (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/core/lib/parser/index.js:41:34)
+      at parser.next (<anonymous>)
+      at normalizeFile (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/core/lib/transformation/normalize-file.js:64:37)
+      at normalizeFile.next (<anonymous>)
+      at run (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/core/lib/transformation/index.js:22:50)
+      at run.next (<anonymous>)
+      at transform (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/core/lib/transform.js:22:33)
+      at transform.next (<anonymous>)
+      at step (/Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:261:32)
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:273:13
+      at async.call.result.err.err (/Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:223:11)
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:189:28
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/core/lib/gensync-utils/async.js:67:7
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:113:33
+      at step (/Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:287:14)
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:273:13
+      at async.call.result.err.err (/Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:223:11)
+12:50:36 PM [vite] Internal server error: /Users/ashirwadk/Project/pepsico/frontend/src/components/DeliveryAttendanceCard.jsx: Identifier 'API_BASE' has already been declared. (5:6)
+
+  3 |
+  4 | const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:5001'
+> 5 | const API_BASE = import.meta.env.VITE_API_BASE 
+    |       ^
+  6 |   ? import.meta.env.VITE_API_BASE.replace(/\/$/, '') 
+  7 |   : (import.meta.env.PROD ? 'https://pepsico-backend.vercel.app' : 'http://localhost:5001')
+  8 |
+  Plugin: vite:react-babel
+  File: /Users/ashirwadk/Project/pepsico/frontend/src/components/DeliveryAttendanceCard.jsx:5:6
+  3  |  
+  4  |  const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:5001'
+  5  |  const API_BASE = import.meta.env.VITE_API_BASE 
+     |        ^
+  6  |    ? import.meta.env.VITE_API_BASE.replace(/\/$/, '') 
+  7  |    : (import.meta.env.PROD ? 'https://pepsico-backend.vercel.app' : 'http://localhost:5001')
+      at constructor (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:367:19)
+      at JSXParserMixin.raise (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:6624:19)
+      at ScopeHandler.checkRedeclarationInScope (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:1646:19)
+      at ScopeHandler.declareName (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:1612:12)
+      at JSXParserMixin.declareNameFromIdentifier (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:7594:16)
+      at JSXParserMixin.checkIdentifier (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:7590:12)
+      at JSXParserMixin.checkLVal (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:7527:12)
+      at JSXParserMixin.parseVarId (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13488:10)
+      at JSXParserMixin.parseVar (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13459:12)
+      at JSXParserMixin.parseVarStatement (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13306:10)
+      at JSXParserMixin.parseStatementContent (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12927:23)
+      at JSXParserMixin.parseStatementLike (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12843:17)
+      at JSXParserMixin.parseModuleItem (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12820:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13392:36)
+      at JSXParserMixin.parseBlockBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13385:10)
+      at JSXParserMixin.parseProgram (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12698:10)
+      at JSXParserMixin.parseTopLevel (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12688:25)
+      at JSXParserMixin.parse (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:14568:25)
+      at parse (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:14602:38)
+      at parser (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/core/lib/parser/index.js:41:34)
+      at parser.next (<anonymous>)
+      at normalizeFile (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/core/lib/transformation/normalize-file.js:64:37)
+      at normalizeFile.next (<anonymous>)
+      at run (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/core/lib/transformation/index.js:22:50)
+      at run.next (<anonymous>)
+      at transform (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/core/lib/transform.js:22:33)
+      at transform.next (<anonymous>)
+      at step (/Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:261:32)
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:273:13
+      at async.call.result.err.err (/Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:223:11)
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:189:28
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/core/lib/gensync-utils/async.js:67:7
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:113:33
+      at step (/Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:287:14)
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:273:13
+      at async.call.result.err.err (/Users/ashirwadk/Project/pepsico/frontend/node_modules/gensync/index.js:223:11)
+12:50:41 PM [vite] hmr update /src/components/DeliveryAttendanceCard.jsx
+12:52:03 PM [vite] hmr update /src/components/DeliveryAttendanceCard.jsx
+12:52:03 PM [vite] Internal server error: /Users/ashirwadk/Project/pepsico/frontend/src/components/DeliveryAttendanceCard.jsx: Unexpected token, expected "," (312:8)
+
+  310 |         proxy: false,
+  311 |         vpn: false
+> 312 |         connectionType: navigator.connection?.effectiveType || null
+      |         ^
+  313 |       },
+  314 |       deviceInfo: {
+  315 |         userAgent: navigator.userAgent,
+  Plugin: vite:react-babel
+  File: /Users/ashirwadk/Project/pepsico/frontend/src/components/DeliveryAttendanceCard.jsx:312:8
+  310|          proxy: false,
+  311|          vpn: false
+  312|          connectionType: navigator.connection?.effectiveType || null
+     |          ^
+  313|        },
+  314|        deviceInfo: {
+      at constructor (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:367:19)
+      at JSXParserMixin.raise (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:6624:19)
+      at JSXParserMixin.unexpected (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:6644:16)
+      at JSXParserMixin.expect (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:6924:12)
+      at JSXParserMixin.parseObjectLike (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11894:14)
+      at JSXParserMixin.parseExprAtom (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11403:23)
+      at JSXParserMixin.parseExprAtom (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:4793:20)
+      at JSXParserMixin.parseExprSubscripts (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11145:23)
+      at JSXParserMixin.parseUpdate (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11130:21)
+      at JSXParserMixin.parseMaybeUnary (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11110:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10963:61)
+      at JSXParserMixin.parseExprOps (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10968:23)
+      at JSXParserMixin.parseMaybeConditional (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10945:23)
+      at JSXParserMixin.parseMaybeAssign (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10895:21)
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10864:39
+      at JSXParserMixin.allowInAnd (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12500:12)
+      at JSXParserMixin.parseMaybeAssignAllowIn (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10864:17)
+      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12567:17)
+      at JSXParserMixin.parseObjectProperty (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12024:83)
+      at JSXParserMixin.parseObjPropValue (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12052:100)
+      at JSXParserMixin.parsePropertyDefinition (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11989:17)
+      at JSXParserMixin.parseObjectLike (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11904:21)
+      at JSXParserMixin.parseExprAtom (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11403:23)
+      at JSXParserMixin.parseExprAtom (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:4793:20)
+      at JSXParserMixin.parseExprSubscripts (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11145:23)
+      at JSXParserMixin.parseUpdate (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11130:21)
+      at JSXParserMixin.parseMaybeUnary (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11110:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10963:61)
+      at JSXParserMixin.parseExprOps (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10968:23)
+      at JSXParserMixin.parseMaybeConditional (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10945:23)
+      at JSXParserMixin.parseMaybeAssign (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10895:21)
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10864:39
+      at JSXParserMixin.allowInAnd (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12495:16)
+      at JSXParserMixin.parseMaybeAssignAllowIn (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10864:17)
+      at JSXParserMixin.parseVar (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13460:91)
+      at JSXParserMixin.parseVarStatement (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13306:10)
+      at JSXParserMixin.parseStatementContent (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12927:23)
+      at JSXParserMixin.parseStatementLike (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12843:17)
+      at JSXParserMixin.parseStatementListItem (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12823:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13392:61)
+      at JSXParserMixin.parseBlockBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13385:10)
+      at JSXParserMixin.parseBlock (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13373:10)
+      at JSXParserMixin.parseFunctionBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12174:24)
+      at JSXParserMixin.parseArrowExpression (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12149:10)
+      at JSXParserMixin.parseAsyncArrowFromCallExpression (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11328:10)
+      at JSXParserMixin.parseCoverCallAndAsyncArrowHead (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11258:27)
+      at JSXParserMixin.parseSubscript (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11184:19)
+      at JSXParserMixin.parseSubscripts (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11158:19)
+      at JSXParserMixin.parseExprSubscripts (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11149:17)
+      at JSXParserMixin.parseUpdate (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11130:21)
+12:52:03 PM [vite] Internal server error: /Users/ashirwadk/Project/pepsico/frontend/src/components/DeliveryAttendanceCard.jsx: Unexpected token, expected "," (312:8)
+
+  310 |         proxy: false,
+  311 |         vpn: false
+> 312 |         connectionType: navigator.connection?.effectiveType || null
+      |         ^
+  313 |       },
+  314 |       deviceInfo: {
+  315 |         userAgent: navigator.userAgent,
+  Plugin: vite:react-babel
+  File: /Users/ashirwadk/Project/pepsico/frontend/src/components/DeliveryAttendanceCard.jsx:312:8
+  310|          proxy: false,
+  311|          vpn: false
+  312|          connectionType: navigator.connection?.effectiveType || null
+     |          ^
+  313|        },
+  314|        deviceInfo: {
+      at constructor (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:367:19)
+      at JSXParserMixin.raise (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:6624:19)
+      at JSXParserMixin.unexpected (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:6644:16)
+      at JSXParserMixin.expect (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:6924:12)
+      at JSXParserMixin.parseObjectLike (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11894:14)
+      at JSXParserMixin.parseExprAtom (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11403:23)
+      at JSXParserMixin.parseExprAtom (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:4793:20)
+      at JSXParserMixin.parseExprSubscripts (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11145:23)
+      at JSXParserMixin.parseUpdate (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11130:21)
+      at JSXParserMixin.parseMaybeUnary (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11110:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10963:61)
+      at JSXParserMixin.parseExprOps (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10968:23)
+      at JSXParserMixin.parseMaybeConditional (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10945:23)
+      at JSXParserMixin.parseMaybeAssign (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10895:21)
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10864:39
+      at JSXParserMixin.allowInAnd (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12500:12)
+      at JSXParserMixin.parseMaybeAssignAllowIn (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10864:17)
+      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12567:17)
+      at JSXParserMixin.parseObjectProperty (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12024:83)
+      at JSXParserMixin.parseObjPropValue (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12052:100)
+      at JSXParserMixin.parsePropertyDefinition (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11989:17)
+      at JSXParserMixin.parseObjectLike (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11904:21)
+      at JSXParserMixin.parseExprAtom (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11403:23)
+      at JSXParserMixin.parseExprAtom (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:4793:20)
+      at JSXParserMixin.parseExprSubscripts (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11145:23)
+      at JSXParserMixin.parseUpdate (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11130:21)
+      at JSXParserMixin.parseMaybeUnary (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11110:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10963:61)
+      at JSXParserMixin.parseExprOps (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10968:23)
+      at JSXParserMixin.parseMaybeConditional (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10945:23)
+      at JSXParserMixin.parseMaybeAssign (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10895:21)
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10864:39
+      at JSXParserMixin.allowInAnd (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12495:16)
+      at JSXParserMixin.parseMaybeAssignAllowIn (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10864:17)
+      at JSXParserMixin.parseVar (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13460:91)
+      at JSXParserMixin.parseVarStatement (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13306:10)
+      at JSXParserMixin.parseStatementContent (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12927:23)
+      at JSXParserMixin.parseStatementLike (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12843:17)
+      at JSXParserMixin.parseStatementListItem (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12823:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13392:61)
+      at JSXParserMixin.parseBlockBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13385:10)
+      at JSXParserMixin.parseBlock (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13373:10)
+      at JSXParserMixin.parseFunctionBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12174:24)
+      at JSXParserMixin.parseArrowExpression (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12149:10)
+      at JSXParserMixin.parseAsyncArrowFromCallExpression (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11328:10)
+      at JSXParserMixin.parseCoverCallAndAsyncArrowHead (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11258:27)
+      at JSXParserMixin.parseSubscript (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11184:19)
+      at JSXParserMixin.parseSubscripts (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11158:19)
+      at JSXParserMixin.parseExprSubscripts (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11149:17)
+      at JSXParserMixin.parseUpdate (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11130:21)
+12:52:26 PM [vite] hmr update /src/components/DeliveryAttendanceCard.jsx
+12:52:56 PM [vite] hmr update /src/components/DeliveryAttendanceCard.jsx
+12:52:56 PM [vite] Internal server error: /Users/ashirwadk/Project/pepsico/frontend/src/components/DeliveryAttendanceCard.jsx: Unexpected token, expected "," (312:8)
+
+  310 |         proxy: false,
+  311 |         vpn: false
+> 312 |         connectionType: navigator.connection?.effectiveType || null
+      |         ^
+  313 |       },
+  314 |       deviceInfo: {
+  315 |         userAgent: navigator.userAgent,
+  Plugin: vite:react-babel
+  File: /Users/ashirwadk/Project/pepsico/frontend/src/components/DeliveryAttendanceCard.jsx:312:8
+  310|          proxy: false,
+  311|          vpn: false
+  312|          connectionType: navigator.connection?.effectiveType || null
+     |          ^
+  313|        },
+  314|        deviceInfo: {
+      at constructor (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:367:19)
+      at JSXParserMixin.raise (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:6624:19)
+      at JSXParserMixin.unexpected (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:6644:16)
+      at JSXParserMixin.expect (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:6924:12)
+      at JSXParserMixin.parseObjectLike (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11894:14)
+      at JSXParserMixin.parseExprAtom (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11403:23)
+      at JSXParserMixin.parseExprAtom (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:4793:20)
+      at JSXParserMixin.parseExprSubscripts (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11145:23)
+      at JSXParserMixin.parseUpdate (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11130:21)
+      at JSXParserMixin.parseMaybeUnary (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11110:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10963:61)
+      at JSXParserMixin.parseExprOps (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10968:23)
+      at JSXParserMixin.parseMaybeConditional (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10945:23)
+      at JSXParserMixin.parseMaybeAssign (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10895:21)
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10864:39
+      at JSXParserMixin.allowInAnd (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12500:12)
+      at JSXParserMixin.parseMaybeAssignAllowIn (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10864:17)
+      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12567:17)
+      at JSXParserMixin.parseObjectProperty (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12024:83)
+      at JSXParserMixin.parseObjPropValue (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12052:100)
+      at JSXParserMixin.parsePropertyDefinition (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11989:17)
+      at JSXParserMixin.parseObjectLike (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11904:21)
+      at JSXParserMixin.parseExprAtom (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11403:23)
+      at JSXParserMixin.parseExprAtom (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:4793:20)
+      at JSXParserMixin.parseExprSubscripts (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11145:23)
+      at JSXParserMixin.parseUpdate (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11130:21)
+      at JSXParserMixin.parseMaybeUnary (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11110:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10963:61)
+      at JSXParserMixin.parseExprOps (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10968:23)
+      at JSXParserMixin.parseMaybeConditional (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10945:23)
+      at JSXParserMixin.parseMaybeAssign (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10895:21)
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10864:39
+      at JSXParserMixin.allowInAnd (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12495:16)
+      at JSXParserMixin.parseMaybeAssignAllowIn (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10864:17)
+      at JSXParserMixin.parseVar (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13460:91)
+      at JSXParserMixin.parseVarStatement (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13306:10)
+      at JSXParserMixin.parseStatementContent (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12927:23)
+      at JSXParserMixin.parseStatementLike (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12843:17)
+      at JSXParserMixin.parseStatementListItem (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12823:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13392:61)
+      at JSXParserMixin.parseBlockBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13385:10)
+      at JSXParserMixin.parseBlock (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13373:10)
+      at JSXParserMixin.parseFunctionBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12174:24)
+      at JSXParserMixin.parseArrowExpression (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12149:10)
+      at JSXParserMixin.parseAsyncArrowFromCallExpression (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11328:10)
+      at JSXParserMixin.parseCoverCallAndAsyncArrowHead (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11258:27)
+      at JSXParserMixin.parseSubscript (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11184:19)
+      at JSXParserMixin.parseSubscripts (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11158:19)
+      at JSXParserMixin.parseExprSubscripts (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11149:17)
+      at JSXParserMixin.parseUpdate (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11130:21)
+12:52:56 PM [vite] Internal server error: /Users/ashirwadk/Project/pepsico/frontend/src/components/DeliveryAttendanceCard.jsx: Unexpected token, expected "," (312:8)
+
+  310 |         proxy: false,
+  311 |         vpn: false
+> 312 |         connectionType: navigator.connection?.effectiveType || null
+      |         ^
+  313 |       },
+  314 |       deviceInfo: {
+  315 |         userAgent: navigator.userAgent,
+  Plugin: vite:react-babel
+  File: /Users/ashirwadk/Project/pepsico/frontend/src/components/DeliveryAttendanceCard.jsx:312:8
+  310|          proxy: false,
+  311|          vpn: false
+  312|          connectionType: navigator.connection?.effectiveType || null
+     |          ^
+  313|        },
+  314|        deviceInfo: {
+      at constructor (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:367:19)
+      at JSXParserMixin.raise (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:6624:19)
+      at JSXParserMixin.unexpected (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:6644:16)
+      at JSXParserMixin.expect (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:6924:12)
+      at JSXParserMixin.parseObjectLike (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11894:14)
+      at JSXParserMixin.parseExprAtom (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11403:23)
+      at JSXParserMixin.parseExprAtom (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:4793:20)
+      at JSXParserMixin.parseExprSubscripts (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11145:23)
+      at JSXParserMixin.parseUpdate (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11130:21)
+      at JSXParserMixin.parseMaybeUnary (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11110:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10963:61)
+      at JSXParserMixin.parseExprOps (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10968:23)
+      at JSXParserMixin.parseMaybeConditional (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10945:23)
+      at JSXParserMixin.parseMaybeAssign (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10895:21)
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10864:39
+      at JSXParserMixin.allowInAnd (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12500:12)
+      at JSXParserMixin.parseMaybeAssignAllowIn (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10864:17)
+      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12567:17)
+      at JSXParserMixin.parseObjectProperty (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12024:83)
+      at JSXParserMixin.parseObjPropValue (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12052:100)
+      at JSXParserMixin.parsePropertyDefinition (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11989:17)
+      at JSXParserMixin.parseObjectLike (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11904:21)
+      at JSXParserMixin.parseExprAtom (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11403:23)
+      at JSXParserMixin.parseExprAtom (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:4793:20)
+      at JSXParserMixin.parseExprSubscripts (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11145:23)
+      at JSXParserMixin.parseUpdate (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11130:21)
+      at JSXParserMixin.parseMaybeUnary (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11110:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10963:61)
+      at JSXParserMixin.parseExprOps (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10968:23)
+      at JSXParserMixin.parseMaybeConditional (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10945:23)
+      at JSXParserMixin.parseMaybeAssign (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10895:21)
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10864:39
+      at JSXParserMixin.allowInAnd (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12495:16)
+      at JSXParserMixin.parseMaybeAssignAllowIn (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10864:17)
+      at JSXParserMixin.parseVar (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13460:91)
+      at JSXParserMixin.parseVarStatement (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13306:10)
+      at JSXParserMixin.parseStatementContent (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12927:23)
+      at JSXParserMixin.parseStatementLike (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12843:17)
+      at JSXParserMixin.parseStatementListItem (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12823:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13392:61)
+      at JSXParserMixin.parseBlockBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13385:10)
+      at JSXParserMixin.parseBlock (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13373:10)
+      at JSXParserMixin.parseFunctionBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12174:24)
+      at JSXParserMixin.parseArrowExpression (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12149:10)
+      at JSXParserMixin.parseAsyncArrowFromCallExpression (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11328:10)
+      at JSXParserMixin.parseCoverCallAndAsyncArrowHead (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11258:27)
+      at JSXParserMixin.parseSubscript (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11184:19)
+      at JSXParserMixin.parseSubscripts (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11158:19)
+      at JSXParserMixin.parseExprSubscripts (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11149:17)
+      at JSXParserMixin.parseUpdate (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11130:21)
+12:53:58 PM [vite] hmr update /src/components/DeliveryAttendanceCard.jsx
+12:54:52 PM [vite] hmr update /src/pages/DeliveryPartnerDashboard.jsx
+12:54:52 PM [vite] Internal server error: /Users/ashirwadk/Project/pepsico/frontend/src/pages/DeliveryPartnerDashboard.jsx: Identifier 'diff' has already been declared. (155:10)
+
+  153 |     }
+  154 |     
+> 155 |     const diff = blockDate - currentTime
+      |           ^
+  156 |     const remainingHours = Math.floor(diff / (1000 * 60 * 60))
+  157 |     const remainingMinutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))
+  158 |     
+  Plugin: vite:react-babel
+  File: /Users/ashirwadk/Project/pepsico/frontend/src/pages/DeliveryPartnerDashboard.jsx:155:10
+  153|      }
+  154|      
+  155|      const diff = blockDate - currentTime
+     |            ^
+  156|      const remainingHours = Math.floor(diff / (1000 * 60 * 60))
+  157|      const remainingMinutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))
+      at constructor (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:367:19)
+      at JSXParserMixin.raise (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:6624:19)
+      at ScopeHandler.checkRedeclarationInScope (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:1646:19)
+      at ScopeHandler.declareName (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:1612:12)
+      at JSXParserMixin.declareNameFromIdentifier (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:7594:16)
+      at JSXParserMixin.checkIdentifier (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:7590:12)
+      at JSXParserMixin.checkLVal (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:7527:12)
+      at JSXParserMixin.parseVarId (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13488:10)
+      at JSXParserMixin.parseVar (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13459:12)
+      at JSXParserMixin.parseVarStatement (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13306:10)
+      at JSXParserMixin.parseStatementContent (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12927:23)
+      at JSXParserMixin.parseStatementLike (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12843:17)
+      at JSXParserMixin.parseStatementListItem (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12823:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13392:61)
+      at JSXParserMixin.parseBlockBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13385:10)
+      at JSXParserMixin.parseBlock (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13373:10)
+      at JSXParserMixin.parseStatementContent (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12934:21)
+      at JSXParserMixin.parseStatementLike (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12843:17)
+      at JSXParserMixin.parseStatementOrSloppyAnnexBFunctionDeclaration (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12833:17)
+      at JSXParserMixin.parseIfStatement (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13206:28)
+      at JSXParserMixin.parseStatementContent (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12872:21)
+      at JSXParserMixin.parseStatementLike (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12843:17)
+      at JSXParserMixin.parseStatementListItem (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12823:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13392:61)
+      at JSXParserMixin.parseBlockBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13385:10)
+      at JSXParserMixin.parseBlock (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13373:10)
+      at JSXParserMixin.parseFunctionBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12174:24)
+      at JSXParserMixin.parseArrowExpression (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12149:10)
+      at JSXParserMixin.parseParenAndDistinguishExpression (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11759:12)
+      at JSXParserMixin.parseExprAtom (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11395:23)
+      at JSXParserMixin.parseExprAtom (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:4793:20)
+      at JSXParserMixin.parseExprSubscripts (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11145:23)
+      at JSXParserMixin.parseUpdate (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11130:21)
+      at JSXParserMixin.parseMaybeUnary (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11110:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10963:61)
+      at JSXParserMixin.parseExprOps (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10968:23)
+      at JSXParserMixin.parseMaybeConditional (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10945:23)
+      at JSXParserMixin.parseMaybeAssign (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10895:21)
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10864:39
+      at JSXParserMixin.allowInAnd (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12495:16)
+      at JSXParserMixin.parseMaybeAssignAllowIn (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10864:17)
+      at JSXParserMixin.parseVar (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13460:91)
+      at JSXParserMixin.parseVarStatement (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13306:10)
+      at JSXParserMixin.parseStatementContent (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12927:23)
+      at JSXParserMixin.parseStatementLike (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12843:17)
+      at JSXParserMixin.parseStatementListItem (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12823:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13392:61)
+      at JSXParserMixin.parseBlockBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13385:10)
+      at JSXParserMixin.parseBlock (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13373:10)
+      at JSXParserMixin.parseFunctionBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12174:24)
+12:54:52 PM [vite] Internal server error: /Users/ashirwadk/Project/pepsico/frontend/src/pages/DeliveryPartnerDashboard.jsx: Identifier 'diff' has already been declared. (155:10)
+
+  153 |     }
+  154 |     
+> 155 |     const diff = blockDate - currentTime
+      |           ^
+  156 |     const remainingHours = Math.floor(diff / (1000 * 60 * 60))
+  157 |     const remainingMinutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))
+  158 |     
+  Plugin: vite:react-babel
+  File: /Users/ashirwadk/Project/pepsico/frontend/src/pages/DeliveryPartnerDashboard.jsx:155:10
+  153|      }
+  154|      
+  155|      const diff = blockDate - currentTime
+     |            ^
+  156|      const remainingHours = Math.floor(diff / (1000 * 60 * 60))
+  157|      const remainingMinutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))
+      at constructor (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:367:19)
+      at JSXParserMixin.raise (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:6624:19)
+      at ScopeHandler.checkRedeclarationInScope (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:1646:19)
+      at ScopeHandler.declareName (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:1612:12)
+      at JSXParserMixin.declareNameFromIdentifier (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:7594:16)
+      at JSXParserMixin.checkIdentifier (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:7590:12)
+      at JSXParserMixin.checkLVal (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:7527:12)
+      at JSXParserMixin.parseVarId (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13488:10)
+      at JSXParserMixin.parseVar (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13459:12)
+      at JSXParserMixin.parseVarStatement (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13306:10)
+      at JSXParserMixin.parseStatementContent (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12927:23)
+      at JSXParserMixin.parseStatementLike (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12843:17)
+      at JSXParserMixin.parseStatementListItem (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12823:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13392:61)
+      at JSXParserMixin.parseBlockBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13385:10)
+      at JSXParserMixin.parseBlock (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13373:10)
+      at JSXParserMixin.parseStatementContent (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12934:21)
+      at JSXParserMixin.parseStatementLike (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12843:17)
+      at JSXParserMixin.parseStatementOrSloppyAnnexBFunctionDeclaration (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12833:17)
+      at JSXParserMixin.parseIfStatement (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13206:28)
+      at JSXParserMixin.parseStatementContent (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12872:21)
+      at JSXParserMixin.parseStatementLike (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12843:17)
+      at JSXParserMixin.parseStatementListItem (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12823:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13392:61)
+      at JSXParserMixin.parseBlockBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13385:10)
+      at JSXParserMixin.parseBlock (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13373:10)
+      at JSXParserMixin.parseFunctionBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12174:24)
+      at JSXParserMixin.parseArrowExpression (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12149:10)
+      at JSXParserMixin.parseParenAndDistinguishExpression (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11759:12)
+      at JSXParserMixin.parseExprAtom (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11395:23)
+      at JSXParserMixin.parseExprAtom (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:4793:20)
+      at JSXParserMixin.parseExprSubscripts (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11145:23)
+      at JSXParserMixin.parseUpdate (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11130:21)
+      at JSXParserMixin.parseMaybeUnary (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:11110:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10963:61)
+      at JSXParserMixin.parseExprOps (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10968:23)
+      at JSXParserMixin.parseMaybeConditional (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10945:23)
+      at JSXParserMixin.parseMaybeAssign (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10895:21)
+      at /Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10864:39
+      at JSXParserMixin.allowInAnd (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12495:16)
+      at JSXParserMixin.parseMaybeAssignAllowIn (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:10864:17)
+      at JSXParserMixin.parseVar (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13460:91)
+      at JSXParserMixin.parseVarStatement (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13306:10)
+      at JSXParserMixin.parseStatementContent (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12927:23)
+      at JSXParserMixin.parseStatementLike (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12843:17)
+      at JSXParserMixin.parseStatementListItem (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12823:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13392:61)
+      at JSXParserMixin.parseBlockBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13385:10)
+      at JSXParserMixin.parseBlock (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:13373:10)
+      at JSXParserMixin.parseFunctionBody (/Users/ashirwadk/Project/pepsico/frontend/node_modules/@babel/parser/lib/index.js:12174:24)
+12:55:21 PM [vite] hmr update /src/pages/DeliveryPartnerDashboard.jsx

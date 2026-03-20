@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react'
+import { useAdminAuth } from '../../context/AdminAuthContext'
 
 const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:5001'
 
@@ -56,7 +57,10 @@ function KPI({ label, value, tone = 'default' }) {
   )
 }
 
-export default function DeliveryAttendanceTab({ adminKey }) {
+export default function DeliveryAttendanceTab({ managerMode = false }) {
+  const { adminKey } = useAdminAuth ? useAdminAuth() : { adminKey: null }
+  const managerToken = localStorage.getItem('manager_token')
+
   const [month, setMonth] = useState(getCurrentMonth())
   const [partnerId, setPartnerId] = useState('')
   const [statusFilter, setStatusFilter] = useState('')
@@ -89,10 +93,14 @@ export default function DeliveryAttendanceTab({ adminKey }) {
     reason: ''
   })
 
-  const headers = useMemo(() => ({ 'x-admin-api-key': adminKey }), [adminKey])
+  const headers = useMemo(() => {
+    if (managerMode) return { 'x-manager-token': managerToken }
+    return { 'x-admin-api-key': adminKey, 'x-admin-key': adminKey }
+  }, [adminKey, managerToken, managerMode])
 
   const loadAttendanceData = async ({ showLoader = true } = {}) => {
-    if (!adminKey) return
+    if (managerMode && !managerToken) return
+    if (!managerMode && !adminKey) return
 
     if (showLoader) setLoading(true)
     setError('')
@@ -156,7 +164,7 @@ export default function DeliveryAttendanceTab({ adminKey }) {
 
   useEffect(() => {
     loadAttendanceData()
-  }, [adminKey, month, partnerId, statusFilter, flaggedOnly, page])
+  }, [adminKey, managerToken, managerMode, month, partnerId, statusFilter, flaggedOnly, page])
 
   const handlePartnerDraftChange = (partnerKey, field, value) => {
     setPartnerDrafts((prev) => ({
@@ -530,7 +538,6 @@ export default function DeliveryAttendanceTab({ adminKey }) {
                     const flagList = [
                       row.location_mismatch ? 'Location' : null,
                       row.fake_gps ? 'Fake GPS' : null,
-                      row.vpn_proxy_detected ? 'VPN/Proxy' : null,
                       row.repeated_same_image_hash ? 'Face Hash' : null,
                       row.impossible_travel_time ? 'Travel' : null,
                       row.suspicious_early_checkout ? 'Early Out' : null

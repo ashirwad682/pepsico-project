@@ -143,16 +143,16 @@ export default function DeliveryPartnerDashboard() {
     const blockDate = new Date(currentTime)
     blockDate.setHours(hours, minutes, 0, 0)
     
-    // If block time has passed today, it's for tomorrow
-    if (blockDate < currentTime) {
-      blockDate.setDate(blockDate.getDate() + 1)
+    const diff = blockDate - currentTime
+    
+    if (diff < 0) {
+      return { hours: 0, minutes: 0, isPassed: true }
     }
     
-    const diff = blockDate - currentTime
     const remainingHours = Math.floor(diff / (1000 * 60 * 60))
     const remainingMinutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))
     
-    return { hours: remainingHours, minutes: remainingMinutes, isPassed: diff < 0 }
+    return { hours: remainingHours, minutes: remainingMinutes, isPassed: false }
   }
 
   const formatBlockTime = (time24) => {
@@ -695,7 +695,9 @@ export default function DeliveryPartnerDashboard() {
               >
                 <span style={{ fontSize: 16 }}>⏰</span>
                 <span>
-                  {remainingTime.isPassed 
+                {dashboardBlocked && !dashboardLocked
+                  ? `Unlocked`
+                  : remainingTime.isPassed 
                     ? `Blocked` 
                     : remainingTime.hours > 0 
                       ? `Block in ${remainingTime.hours}h ${remainingTime.minutes}m`
