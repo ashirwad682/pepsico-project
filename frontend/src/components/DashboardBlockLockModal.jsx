@@ -33,16 +33,19 @@ export default function DashboardBlockLockModal({ isBlocked, blockTime, onUnlock
 
       const data = await res.json()
 
-      if (!data.canAccess) {
+      if (!res.ok || !data.canAccess) {
+        const errorText = data.error || data.message || ''
+        const lowerError = errorText.toLowerCase()
+
         // Check if it's an "already used" error
-        if (data.message && data.message.includes('already been used')) {
+        if (lowerError.includes('already used') || lowerError.includes('already been used')) {
           setError('This access key has already been used. Please contact the admin to get a new one.')
-        } else if (data.message && data.message.includes('expired')) {
+        } else if (lowerError.includes('expired')) {
           setError('This access key has expired. Please contact the admin to get a new one.')
-        } else if (data.message && data.message.includes('Invalid')) {
+        } else if (lowerError.includes('invalid')) {
           setError('Invalid access key. Please check and try again.')
         } else {
-          setError(data.message || 'Unable to verify access key')
+          setError(errorText || 'Unable to verify access key')
         }
         return
       }
