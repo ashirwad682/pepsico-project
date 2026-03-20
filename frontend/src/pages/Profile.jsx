@@ -1,11 +1,13 @@
-import React, { useState, useEffect, useCallback, useMemo } from 'react';
+import React, { useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../lib/supabaseClient';
 import { motion } from 'framer-motion';
 import { useMediaQuery } from '../lib/useMediaQuery';
 
 // ...existing code...
-const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:5001'
+const API_BASE = import.meta.env.VITE_API_BASE 
+  ? import.meta.env.VITE_API_BASE.replace(/\/$/, '') 
+  : (import.meta.env.PROD ? 'https://pepsico-backend.vercel.app' : 'http://localhost:5001')
 const MAX_UPLOAD_BYTES = 5 * 1024 * 1024
 const ALLOWED_PHOTO_MIME_TYPES = new Set(['image/jpeg', 'image/jpg', 'image/png'])
 const ALLOWED_DOCUMENT_MIME_TYPES = new Set(['application/pdf', 'image/jpeg', 'image/jpg', 'image/png'])
@@ -100,6 +102,28 @@ export default function Profile() {
   const [photoMessage, setPhotoMessage] = useState('')
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+
+  const [cameraOpen, setCameraOpen] = useState(false)
+  const [cameraStarting, setCameraStarting] = useState(false)
+  const videoRef = useRef(null)
+  const canvasRef = useRef(null)
+  const cameraStreamRef = useRef(null)
+
+  function stopCameraStream() {
+    if (cameraStreamRef.current) {
+      cameraStreamRef.current.getTracks().forEach((track) => track.stop())
+      cameraStreamRef.current = null
+    }
+    if (videoRef.current) {
+      videoRef.current.srcObject = null
+    }
+  }
+
+  useEffect(() => {
+    return () => {
+      stopCameraStream()
+    }
+  }, [])
 
   const getAuthToken = useCallback(async () => {
     const { data, error: sessionError } = await supabase.auth.getSession()
@@ -196,22 +220,19 @@ export default function Profile() {
     }
   }, [loadVerificationData]);
 
-  const handleProfilePhotoUpload = useCallback(async (event, source = 'upload') => {
-    const selectedFile = event?.target?.files?.[0]
-    event.target.value = ''
-
-    if (!selectedFile) return
+  const uploadPhotoFile = useCallback(async (selectedFile, source = 'upload') => {
+    if (!selectedFile) return false
 
     if (!ALLOWED_PHOTO_MIME_TYPES.has(selectedFile.type)) {
       setPhotoError('Only JPG and PNG files are allowed for profile photos.')
       setPhotoMessage('')
-      return
+      return false
     }
 
     if (selectedFile.size > MAX_UPLOAD_BYTES) {
       setPhotoError('Profile photo must be 5MB or smaller.')
       setPhotoMessage('')
-      return
+      return false
     }
 
     setPhotoUploading(true)
@@ -244,12 +265,106 @@ export default function Profile() {
       } : prev)
 
       setPhotoMessage('Profile photo updated successfully.')
+      return true
     } catch (err) {
       setPhotoError(err.message || 'Unable to upload profile photo')
+      return false
     } finally {
       setPhotoUploading(false)
     }
   }, [getAuthToken])
+
+  async function openLiveCamera() {
+    setPhotoError('')
+    setPhotoMessage('')
+
+    if (!navigator?.mediaDevices?.getUserMedia) {
+      setPhotoError('Live camera is not supported on this device/browser.')
+      return
+    }
+
+    setCameraOpen(true)
+    setCameraStarting(true)
+    stopCameraStream()
+
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({
+        video: { facingMode: 'user' },
+        audio: false
+      })
+
+      cameraStreamRef.current = stream
+
+      if (videoRef.current) {
+        videoRef.current.srcObject = stream
+        await videoRef.current.play().catch(() => {})
+      }
+    } catch (err) {
+      const text = String(err?.message || '')
+      if (text.toLowerCase().includes('permission') || text.toLowerCase().includes('notallowed')) {
+        setPhotoError('Camera access denied. Please allow camera permission and try again.')
+      } else {
+        setPhotoError('Unable to start live camera. Please check camera settings and retry.')
+      }
+      setCameraOpen(false)
+      stopCameraStream()
+    } finally {
+      setCameraStarting(false)
+    }
+  }
+
+  function closeLiveCamera() {
+    stopCameraStream()
+    setCameraOpen(false)
+  }
+
+  async function captureLivePhoto() {
+    if (photoUploading) return
+
+    const video = videoRef.current
+    const canvas = canvasRef.current
+
+    if (!video || !canvas) {
+      setPhotoError('Camera preview is not ready yet.')
+      return
+    }
+
+    const width = Number(video.videoWidth || 0)
+    const height = Number(video.videoHeight || 0)
+    if (width <= 0 || height <= 0) {
+      setPhotoError('Camera is still loading. Please wait a moment and try again.')
+      return
+    }
+
+    canvas.width = width
+    canvas.height = height
+
+    const context = canvas.getContext('2d')
+    if (!context) {
+      setPhotoError('Unable to capture live photo.')
+      return
+    }
+
+    context.drawImage(video, 0, 0, width, height)
+
+    const blob = await new Promise((resolve) => {
+      canvas.toBlob(resolve, 'image/jpeg', 0.92)
+    })
+
+    if (!blob) {
+      setPhotoError('Unable to capture photo from camera.')
+      return
+    }
+
+    const liveFile = new File([blob], `user-live-photo-${Date.now()}.jpg`, {
+      type: 'image/jpeg'
+    })
+
+    const success = await uploadPhotoFile(liveFile, 'camera')
+    if (success) {
+      closeLiveCamera()
+    }
+  }
 
   const handleDocumentUpload = useCallback(async (event, documentType) => {
     const selectedFile = event?.target?.files?.[0]
@@ -365,7 +480,7 @@ export default function Profile() {
         photoUploading={photoUploading}
         photoError={photoError}
         photoMessage={photoMessage}
-        onPhotoUpload={handleProfilePhotoUpload}
+        onOpenCamera={openLiveCamera}
         onRefresh={() => loadProfile(true)}
       />
 
@@ -387,6 +502,83 @@ export default function Profile() {
         />
         <PhoneEditSection profile={profile} onUpdated={() => loadProfile(true)} isMobile={isMobile} />
       </div>
+
+      {cameraOpen && (
+        <div
+          style={{
+            position: 'fixed',
+            inset: 0,
+            background: 'rgba(15, 23, 42, 0.6)',
+            display: 'grid',
+            placeItems: 'center',
+            padding: 16,
+            zIndex: 1000
+          }}
+        >
+          <div style={{ width: '100%', maxWidth: 460, background: '#fff', borderRadius: 14, border: '1px solid #cbd5e1', padding: 14 }}>
+            <div style={{ fontSize: 14, fontWeight: 700, color: '#0f172a', marginBottom: 10 }}>Live Camera Capture</div>
+
+            <div style={{
+              borderRadius: 10,
+              overflow: 'hidden',
+              border: '1px solid #e2e8f0',
+              background: '#0f172a',
+              aspectRatio: '3 / 4',
+              display: 'grid',
+              placeItems: 'center'
+            }}>
+              <video
+                ref={videoRef}
+                autoPlay
+                muted
+                playsInline
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              />
+            </div>
+
+            {cameraStarting && (
+              <div style={{ marginTop: 8, fontSize: 12, color: '#64748b' }}>Starting camera...</div>
+            )}
+
+            <div style={{ marginTop: 12, display: 'flex', gap: 8, justifyContent: 'flex-end', flexWrap: 'wrap' }}>
+              <button
+                type="button"
+                onClick={closeLiveCamera}
+                style={{
+                  padding: '8px 12px',
+                  borderRadius: 8,
+                  border: '1px solid #cbd5e1',
+                  background: '#fff',
+                  color: '#334155',
+                  fontWeight: 700,
+                  cursor: 'pointer'
+                }}
+              >
+                Close
+              </button>
+              <button
+                type="button"
+                onClick={captureLivePhoto}
+                disabled={cameraStarting || photoUploading}
+                style={{
+                  padding: '8px 12px',
+                  borderRadius: 8,
+                  border: 0,
+                  background: '#2563eb',
+                  color: '#fff',
+                  fontWeight: 700,
+                  cursor: (cameraStarting || photoUploading) ? 'not-allowed' : 'pointer',
+                  opacity: (cameraStarting || photoUploading) ? 0.7 : 1
+                }}
+              >
+                {photoUploading ? 'Uploading...' : 'Take Photo'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      <canvas ref={canvasRef} style={{ display: 'none' }} />
     </div>
   );
 }
@@ -399,7 +591,7 @@ function ProfileSidebar({
   photoUploading,
   photoError,
   photoMessage,
-  onPhotoUpload,
+  onOpenCamera,
   onRefresh
 }) {
   const statusStyle = getVerificationStatusStyle(verificationStatus)
@@ -459,34 +651,10 @@ function ProfileSidebar({
           {statusStyle.icon} {statusStyle.label}
         </span>
         <div style={{ width: '100%', display: 'grid', gap: 8 }}>
-          <label
-            htmlFor="profile-photo-upload"
-            style={{
-              width: '100%',
-              textAlign: 'center',
-              padding: '10px 14px',
-              borderRadius: 10,
-              border: '1px solid #cbd5e1',
-              background: photoUploading ? '#f1f5f9' : '#fff',
-              color: '#0f172a',
-              fontSize: 12,
-              fontWeight: 600,
-              cursor: photoUploading ? 'not-allowed' : 'pointer'
-            }}
-          >
-            {photoUploading ? 'Uploading...' : 'Upload Profile Photo'}
-          </label>
-          <input
-            id="profile-photo-upload"
-            type="file"
-            accept="image/jpeg,image/png"
-            style={{ display: 'none' }}
+          <button
+            type="button"
+            onClick={onOpenCamera}
             disabled={photoUploading}
-            onChange={(event) => onPhotoUpload(event, 'upload')}
-          />
-
-          <label
-            htmlFor="profile-photo-live"
             style={{
               width: '100%',
               textAlign: 'center',
@@ -501,18 +669,8 @@ function ProfileSidebar({
             }}
           >
             {photoUploading ? 'Please wait...' : 'Capture Live Photo'}
-          </label>
-          <input
-            id="profile-photo-live"
-            type="file"
-            accept="image/jpeg,image/png"
-            capture="user"
-            style={{ display: 'none' }}
-            disabled={photoUploading}
-            onChange={(event) => onPhotoUpload(event, 'live')}
-          />
+          </button>
 
-          <div style={{ fontSize: 11, color: '#64748b', textAlign: 'center' }}>Only JPG/PNG up to 5MB.</div>
           {photoError && (
             <div style={{ fontSize: 11, color: '#b91c1c', textAlign: 'center' }}>{photoError}</div>
           )}
