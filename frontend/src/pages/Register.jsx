@@ -4,7 +4,8 @@ import { supabase } from '../lib/supabaseClient'
 import { motion } from 'framer-motion'
 import BrandVideoLogo from '../components/BrandVideoLogo'
 
-const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:5001'
+const rawApiBase = import.meta.env.VITE_API_BASE || 'http://localhost:5001';
+const API_BASE = rawApiBase.replace(/\/$/, ''); // Remove trailing slash if present
 
 export default function Register() {
   const [step, setStep] = useState('form') // 'form', 'otp', 'success'
@@ -14,7 +15,6 @@ export default function Register() {
   const [otp, setOtp] = useState('')
   const [error, setError] = useState(null)
   const [loading, setLoading] = useState(false)
-  const [userId, setUserId] = useState(null)
   const [resendCountdown, setResendCountdown] = useState(0)
   const [resendLoading, setResendLoading] = useState(false)
 
@@ -69,7 +69,12 @@ export default function Register() {
       setStep('otp');
     } catch (err) {
       console.error('Registration error:', err);
-      setError(err.message);
+      // Provide a friendly error for common backend connection failures
+      if (err.message === 'Failed to fetch') {
+        setError('Cannot connect to the server. Please check your internet connection or ensure the backend is running.');
+      } else {
+        setError(err.message);
+      }
       setLoading(false);
     }
   }
@@ -96,7 +101,11 @@ export default function Register() {
       setOtp('')
     } catch (err) {
       console.error('Resend OTP error:', err)
-      setError(err.message)
+      if (err.message === 'Failed to fetch') {
+        setError('Cannot connect to the server to resend OTP.');
+      } else {
+        setError(err.message);
+      }
     } finally {
       setResendLoading(false)
     }
@@ -140,11 +149,14 @@ export default function Register() {
         throw new Error(authError.message || 'Failed to create account');
       }
 
+      // Check if user already exists (Supabase returns a user but with empty identities for security reasons)
+      if (authData?.user?.identities && authData.user.identities.length === 0) {
+        throw new Error('An account with this email already exists. Please log in instead.');
+      }
+
       if (!authData?.user?.id) {
         throw new Error('No user ID returned from auth');
       }
-
-      setUserId(authData.user.id);
 
       // Step 3: Create user profile
       const profileRes = await fetch(`${API_BASE}/api/auth/profile`, {
@@ -179,7 +191,11 @@ export default function Register() {
       setStep('success');
     } catch (err) {
       console.error('OTP verification error:', err);
-      setError(err.message);
+      if (err.message === 'Failed to fetch') {
+        setError('Cannot connect to the server. Please ensure the backend is running.');
+      } else {
+        setError(err.message);
+      }
       setLoading(false);
     }
   }
