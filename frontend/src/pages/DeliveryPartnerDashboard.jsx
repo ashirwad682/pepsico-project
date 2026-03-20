@@ -125,6 +125,7 @@ export default function DeliveryPartnerDashboard() {
   
   // Dashboard Blocking State
   const [dashboardBlocked, setDashboardBlocked] = useState(false)
+  const [isBlockingEnabled, setIsBlockingEnabled] = useState(true)
   const [blockTime, setBlockTime] = useState('17:30')
   const [dashboardLocked, setDashboardLocked] = useState(false)
   const [showBlockingInfo, setShowBlockingInfo] = useState(false)
@@ -143,16 +144,20 @@ export default function DeliveryPartnerDashboard() {
     const blockDate = new Date(currentTime)
     blockDate.setHours(hours, minutes, 0, 0)
     
-    const diff = blockDate - currentTime
+    let diff = blockDate - currentTime
+    let isPassed = false
     
     if (diff < 0) {
-      return { hours: 0, minutes: 0, isPassed: true }
+      isPassed = true
+      // Timer starts counting down to the next day's block time
+      blockDate.setDate(blockDate.getDate() + 1)
+      diff = blockDate - currentTime
     }
     
     const remainingHours = Math.floor(diff / (1000 * 60 * 60))
     const remainingMinutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))
     
-    return { hours: remainingHours, minutes: remainingMinutes, isPassed: false }
+    return { hours: remainingHours, minutes: remainingMinutes, isPassed }
   }
 
   const formatBlockTime = (time24) => {
@@ -189,6 +194,27 @@ export default function DeliveryPartnerDashboard() {
     }, 1000)
     return () => clearInterval(timer)
   }, [])
+
+  // Enforce local blocking if time passes and no valid unlock session exists
+  useEffect(() => {
+    if (isBlockingEnabled && remainingTime.isPassed && !dashboardLocked) {
+      if (deliveryPartner?.id) {
+        const today = new Date().toISOString().split('T')[0]
+        const sessionKey = `dashboard_unlock_${deliveryPartner.id}_${today}`
+        const unlockSession = localStorage.getItem(sessionKey)
+        if (unlockSession) {
+          try {
+            const session = JSON.parse(unlockSession)
+            const sessionDate = new Date(session.unlockedAt).toISOString().split('T')[0]
+            if (sessionDate === today && (session.blockTime === blockTime || session.blockTime === blockTime + ':00')) {
+              return; // Already unlocked validly
+            }
+          } catch (e) {}
+        }
+      }
+      setDashboardLocked(true);
+    }
+  }, [currentTime, isBlockingEnabled, remainingTime.isPassed, dashboardLocked, deliveryPartner?.id, blockTime]);
 
   // Close blocking info popup when clicking outside
   useEffect(() => {
@@ -259,6 +285,7 @@ export default function DeliveryPartnerDashboard() {
       
       setDashboardBlocked(data.isBlocked)
       setBlockTime(normalizedBlockTime)
+      setIsBlockingEnabled(data.isEnabled !== false)
       
       // Check if partner has already unlocked for today
       if (data.isBlocked && deliveryPartner?.id) {
@@ -274,6 +301,7 @@ export default function DeliveryPartnerDashboard() {
             if (sessionDate === today && session.blockTime === normalizedBlockTime) {
               // Valid unlock session exists - don't show lock modal
               setDashboardLocked(false)
+              setDashboardBlocked(true) // Ensure it shows as "Unlocked"
               return
             }
           } catch (err) {
@@ -552,7 +580,10 @@ export default function DeliveryPartnerDashboard() {
       <DashboardBlockLockModal 
         isBlocked={dashboardLocked}
         blockTime={blockTime}
-        onUnlock={() => setDashboardLocked(false)}
+        onUnlock={() => {
+          setDashboardLocked(false);
+          setDashboardBlocked(true);
+        }}
         partnerId={deliveryPartner?.id}
       />
 
@@ -695,13 +726,15 @@ export default function DeliveryPartnerDashboard() {
               >
                 <span style={{ fontSize: 16 }}>⏰</span>
                 <span>
-                {dashboardBlocked && !dashboardLocked
-                  ? `Unlocked`
-                  : remainingTime.isPassed 
+                {!isBlockingEnabled
+                  ? `Not Enabled`
+                  : dashboardLocked
                     ? `Blocked` 
-                    : remainingTime.hours > 0 
-                      ? `Block in ${remainingTime.hours}h ${remainingTime.minutes}m`
-                      : `Block in ${remainingTime.minutes}m`
+                    : dashboardBlocked && !dashboardLocked
+                      ? `Unlocked (${remainingTime.hours}h ${remainingTime.minutes}m)`
+                      : remainingTime.hours > 0 
+                        ? `Block in ${remainingTime.hours}h ${remainingTime.minutes}m`
+                        : `Block in ${remainingTime.minutes}m`
                   }
                 </span>
               </div>

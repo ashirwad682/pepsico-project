@@ -1,6 +1,10 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 
+const API_BASE = import.meta.env.VITE_API_BASE 
+  ? import.meta.env.VITE_API_BASE.replace(/\/$/, '') 
+  : (import.meta.env.PROD ? 'https://pepsico-backend.vercel.app' : 'http://localhost:5001')
+
 export default function DashboardBlockLockModal({ isBlocked, blockTime, onUnlock, partnerId }) {
   const [accessKey, setAccessKey] = useState('')
   const [unlocking, setUnlocking] = useState(false)
@@ -18,7 +22,6 @@ export default function DashboardBlockLockModal({ isBlocked, blockTime, onUnlock
       setError(null)
       setSuccessMessage(null)
 
-      const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:5001'
       const res = await fetch(`${API_BASE}/api/dashboard-blocking/check-dashboard-access`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
