@@ -11,7 +11,6 @@ import { setWarehouseSupabaseClient } from './routes/warehouse.js';
 import warehouseRoutes from './routes/warehouse.js';
 import dashboardBlockingRoutes from './routes/dashboard-blocking.js';
 import createProductSlabRouter from './routes/product-slabs.js';
-import sendOtpRouter from './routes/send-otp.js';
 // ...existing code...
 
 // Register OTP email route (after app is initialized)
@@ -33,7 +32,6 @@ const corsOptions = { origin: '*', methods: ['GET', 'POST', 'PUT', 'DELETE', 'PA
 app.use(cors(corsOptions));
 app.options('*', cors(corsOptions));
 
-app.use(sendOtpRouter);
 import multer from 'multer';
 
 const isVercel = process.env.VERCEL === '1' || process.env.NODE_ENV === 'production';
