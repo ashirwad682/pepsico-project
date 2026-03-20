@@ -306,9 +306,7 @@ export default function DeliveryAttendanceCard({ deliveryPartnerId, modalView = 
       },
       networkInfo: {
         online: navigator.onLine,
-        connectionType: navigator.connection?.effectiveType || null,
-        proxy: false,
-        vpn: false
+        connectionType: navigator.connection?.effectiveType || null
       },
       deviceInfo: {
         userAgent: navigator.userAgent,
@@ -341,9 +339,6 @@ export default function DeliveryAttendanceCard({ deliveryPartnerId, modalView = 
       setSubmitting(false)
     }
   }
-
-  // Completely bypass suspicious flags from displaying
-  const suspiciousFlags = []
 
   return (
     <motion.div
@@ -452,19 +447,6 @@ export default function DeliveryAttendanceCard({ deliveryPartnerId, modalView = 
               </div>
             )}
           </div>
-
-          {suspiciousFlags.length > 0 && (
-            <div style={{ marginTop: 14, background: '#fff7ed', border: '1px solid #fdba74', borderRadius: 10, padding: 10 }}>
-              <div style={{ fontSize: 12, fontWeight: 800, color: '#9a3412', marginBottom: 6 }}>Fraud/Suspicious Flags</div>
-              <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-                {suspiciousFlags.map((flag) => (
-                  <span key={flag} style={{ fontSize: 11, color: '#9a3412', background: '#ffedd5', border: '1px solid #fdba74', borderRadius: 999, padding: '4px 8px', fontWeight: 700 }}>
-                    {flag}
-                  </span>
-                ))}
-              </div>
-            </div>
-          )}
 
           <div style={{ marginTop: 14, display: 'flex', gap: 16, flexWrap: 'wrap', fontSize: 12, color: '#475569' }}>
             {attendance?.check_in_latitude !== null && attendance?.check_in_latitude !== undefined && (
